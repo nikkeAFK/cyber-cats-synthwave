@@ -1,152 +1,97 @@
 html {
-    /* Asegura que html y body ocupen toda la altura de la ventana y oculten desbordamientos */
-    height: 100%; 
-    overflow: hidden; 
+    height: 100%;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #1a0f2e;
-    color: #e0e0e0;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column; 
-    min-height: 100vh; /* Ocupa al menos el 100% de la altura de la ventana */
-    /* ELIMINA align-items y justify-content de aquí */
+    font-family: 'Arial', sans-serif;
+    background-color: #1a0f2e;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* Configuración principal del layout */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Usa vh para asegurar que ocupe toda la altura de la pantalla */
 }
 
-/* Estilos para el encabezado con el título */
-.game-header {
+/* Encabezado y Pie de Página */
+.game-header, .game-footer {
     width: 100%;
     text-align: center;
+    background-color: #1a0f2e;
     padding: 20px 0;
-    background-color: #1a0f2e; /* Mismo fondo para integrar */
+    flex-shrink: 0; /* Evita que el header y footer se encojan */
     box-sizing: border-box;
 }
 
 .game-title-text {
     font-size: 3em;
-    color: #00ffff; /* Color neón */
-    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     margin: 0;
-    padding: 0;
 }
 
-/* Contenedor principal para los anuncios y el juego */
+.game-footer {
+    border-top: 1px solid #440088;
+}
+
+/* Contenedor Principal (donde va el juego y los anuncios) */
 .game-layout {
-    display: flex;
-    justify-content: center;  /* Centra el juego horizontalmente */
-    align-items: center;      /* Centra el juego verticalmente */
-    width: 100%;
-    flex-grow: 1;             /* <-- ¡Esta es la clave! Hace que este contenedor crezca para llenar el espacio vertical disponible */
-    padding: 0 15px;          /* Añade un poco de espacio lateral para que no se pegue a los bordes */
-    box-sizing: border-box;
-}
-
-/* Estilos para los banners de anuncios */
-.ad-banner {
-    flex-shrink: 0; /* No permite que los banners se achiquen */
-    width: 160px; /* Ancho típico para banners verticales (ej. 160x600) */
-    height: 600px; /* Altura sugerida, Google Ads se ajustará */
-    background-color: #000000; /* Fondo para que se vean los bloques de ads */
-    border: 1px solid #6600ff; /* Borde neón */
-    margin: 0 15px; /* Espacio entre los banners y el juego */
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
-    font-size: 0.9em;
-    text-align: center;
-    overflow: hidden; /* Asegura que el contenido del anuncio no se salga */
+    flex-grow: 1; /* <-- CLAVE: Hace que esta sección crezca para ocupar el espacio sobrante */
+    padding: 20px; /* Añade un poco de aire alrededor */
     box-sizing: border-box;
+    overflow: hidden; /* Previene desbordamientos en esta sección */
 }
 
-/* Contenedor del juego, que envuelve al iframe - ¡AJUSTADO AQUÍ! */
+/* Contenedor del Juego (Wrapper del Iframe) */
 .game-container-wrapper {
-    /* Este contenedor define el espacio máximo para el iframe */
-    display: flex; /* Usamos flexbox para centrar el iframe directamente */
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%; /* Ocupa el 100% del ancho disponible de su padre */
-    height: 100%; /* Asegura que el contenedor ocupe la altura completa para centrado vertical */
-    max-width: 1044px; /* Ancho máximo para el espacio del iframe (1044x637) */
-    
-    margin: 0; /* Sin márgenes */
-    overflow: hidden; /* Oculta cualquier desbordamiento del contenedor */
-    box-sizing: border-box;
-}
-
-/* Estilos para el iframe del juego - ¡AJUSTADO AQUÍ PARA CENTRADO Y ESCALADO! */
-#gameFrame {
-    width: 100%; /* El iframe ocupará el 100% del ancho de su contenedor */
-    height: auto; /* La altura se ajustará automáticamente */
-    max-width: 1044px; /* Asegura que el iframe no sea más grande que el espacio deseado */
-    aspect-ratio: 1044 / 637; /* Mantiene la proporción (ancho / alto) */
-    
-    display: block; /* Asegura que ocupe su propio espacio */
-    background-color: #000; /* Fondo mientras carga el juego (si hay espacio extra) */
-    border: 2px solid #00ffff; /* Borde neón para el juego */
-    /* box-shadow: 0 0 20px rgba(0, 255, 255, 0.7); -- Se mantiene comentado según tu preferencia */
-    padding: 0;
-    margin: 0;
-    overflow: hidden; /* ¡CRÍTICO! Esto evita las barras de desplazamiento internas */
-    box-sizing: border-box; /* Asegura que el borde no añada tamaño extra */
-}
-
-/* Pie de página */
-.game-footer {
+    max-width: 1044px; /* Ancho máximo para el juego */
     width: 100%;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: auto; /* Empuja el footer hacia abajo */
-    background-color: #1a0f2e;
-    border-top: 1px solid #440088;
-    box-sizing: border-box;
 }
 
-/* Media Queries para responsividad */
-@media (max-width: 1044px) { 
-    .game-layout {
-        flex-direction: column; /* Apila los elementos en pantallas más pequeñas */
-        align-items: center; /* Centra los elementos apilados */
-        padding: 10px;
-    }
+/* Iframe del Juego */
+#gameFrame {
+    width: 100%; /* Ocupa el 100% de su contenedor (.game-container-wrapper) */
+    aspect-ratio: 1044 / 637; /* Mantiene la proporción correcta */
+    border: 2px solid #00ffff;
+    background-color: #000;
+    display: block;
+}
 
+/* Banners de Anuncios */
+.ad-banner {
+    width: 160px;
+    height: 600px;
+    background-color: #000;
+    border: 1px solid #6600ff;
+    margin: 0 15px;
+    flex-shrink: 0; /* Evita que los anuncios se encojan */
+}
+
+/* ---- Media Queries para Responsividad (SIN CAMBIOS) ---- */
+@media (max-width: 1400px) { /* Ajustado para ocultar anuncios antes */
     .ad-banner {
-        width: 100%; /* Los banners ocupan todo el ancho */
-        height: 100px; /* Menos altura para no ocupar tanto espacio vertical */
-        margin-bottom: 20px; /* Espacio entre los banners y el juego */
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .game-container-wrapper {
-        /* En pantallas más pequeñas, el contenedor se ajusta al ancho de la ventana */
-        max-width: 100vw; /* Ocupa todo el ancho de la ventana */
-        height: 100%; /* Mantiene la altura para centrado */
-        margin: 0; /* Quita márgenes horizontales */
-    }
-    #gameFrame {
-        /* En pantallas pequeñas, el iframe se ajusta al 100% de su contenedor */
-        width: 100%;
-        height: auto;
+        display: none; /* Oculta los anuncios laterales en pantallas más pequeñas */
     }
 }
 
-@media (max-width: 600px) {
-    .game-header {
-        padding: 10px 0;
-    }
-
+@media (max-width: 768px) {
     .game-title-text {
         font-size: 2em;
     }
 
-    .ad-banner {
-        height: 70px; /* Aún más pequeños en móviles */
-        margin-bottom: 15px;
+    .game-layout {
+        padding: 10px;
     }
 }
