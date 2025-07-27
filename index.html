@@ -5,19 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CYBERCATS-SYNTHWAVE - ¡Juega Ahora!</title>
     <link rel="stylesheet" href="style.css">
-    <!-- No hay favicons ni scripts de Google Ads en esta versión minimalista -->
+    <!-- Enlaza tu propio favicon si tienes uno -->
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+
+    <!-- ¡IMPORTANTE! Espacio para tus scripts de Google Ads -->
+    <!-- Reemplaza con tus propios códigos de Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    <!-- Asegúrate de cambiar "ca-pub-XXXXXXXXXXXXXX" con tu ID de editor de AdSense -->
+
+    <!-- NOTA: Los scripts de Unity WebGL (loader.js, etc.) NO van aquí. -->
+    <!-- Se cargarán automáticamente desde CYBERCATS-ST2/index.html dentro del iframe. -->
 </head>
 <body>
+    <!-- Encabezado con el logotipo -->
+    <header class="game-header">
+        <!-- Puedes añadir una imagen de título aquí. Ejemplo: -->
+        <!-- <img src="tu_imagen_titulo.png" alt="CYBERCATS-SYNTHWAVE - Logotipo" class="game-title-image"> -->
+        <!-- O simplemente un texto estilizado -->
+        <h1 class="game-title-text">CYBERCATS-SYNTHWAVE</h1>
+    </header>
+
     <main class="game-layout">
+        <aside class="ad-banner ad-left">
+            <!-- Bloque de anuncio de Google Ads IZQUIERDA -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXX"
+                 data-ad-slot="TU_SLOT_ADS_IZQUIERDA"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            <!-- Asegúrate de cambiar "ca-pub-XXXXXXXXXXXXXX" y "TU_SLOT_ADS_IZQUIERDA" -->
+        </aside>
+
         <div class="game-container-wrapper">
-            <!-- El iframe del juego de Unity -->
-            <!-- ¡ACTUALIZADO! Dimensiones del iframe: 1044x617 -->
+            <!-- Contenedor donde se cargará tu juego de Unity como un iframe -->
+            <!-- Dimensiones del iframe que ya funcionan bien: 1044x617 -->
             <iframe id="gameFrame" src="CYBERCATS-ST2/index.html" frameborder="0" allowfullscreen width="1044" height="617"></iframe>
         </div>
+
+        <aside class="ad-banner ad-right">
+            <!-- Bloque de anuncio de Google Ads DERECHA -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXX"
+                 data-ad-slot="TU_SLOT_ADS_DERECHA"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            <!-- Asegúrate de cambiar "ca-pub-XXXXXXXXXXXXXX" y "TU_SLOT_ADS_DERECHA" -->
+        </aside>
     </main>
-    <!-- No hay pie de página en esta versión minimalista -->
+
+    <footer class="game-footer">
+        <!-- Puedes añadir créditos, información adicional aquí -->
+        <p>&copy; 2025 CYBERCATS-SYNTHWAVE. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
+
 
 
 
