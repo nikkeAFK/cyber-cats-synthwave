@@ -1,64 +1,89 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBERCATS-SYNTHWAVE - ¡Juega Ahora!</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Enlaza tu propio favicon si tienes uno -->
-    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
 
-    <!-- ¡IMPORTANTE! Espacio para tus scripts de Google Ads -->
-    <!-- Reemplaza con tus propios códigos de Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXX" crossorigin="anonymous"></script>
-    <!-- Asegúrate de cambiar "ca-pub-XXXXXXXXXXXXXX" con tu ID de editor de AdSense -->
+<html lang="en-us">
 
-    <!-- NOTA: Los scripts de Unity WebGL (loader.js, etc.) NO van aquí. -->
-    <!-- Se cargarán automáticamente desde CYBERCATS-ST2/index.html dentro del iframe. -->
-</head>
-<body>
-    <header class="game-header">
-        <!-- Espacio para tu imagen de título y logotipo -->
-        <img src="tu_imagen_titulo.png" alt="CYBERCATS-SYNTHWAVE - Logotipo" class="game-title-image">
-        <!-- Asegúrate de cambiar "tu_imagen_titulo.png" por la ruta correcta de tu imagen -->
-    </header>
+  <head>
 
-    <main class="game-layout">
-        <aside class="ad-banner ad-left">
-            <!-- Bloque de anuncio de Google Ads IZQUIERDA -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-XXXXXXXXXXXXXX"
-                 data-ad-slot="TU_SLOT_ADS_IZQUIERDA"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-            <!-- Asegúrate de cambiar "ca-pub-XXXXXXXXXXXXXX" y "TU_SLOT_ADS_IZQUIERDA" -->
-        </aside>
+    <meta charset="utf-8">
 
-        <div class="game-container-wrapper">
-            <!-- Contenedor donde se cargará tu juego de Unity como un iframe -->
-            <!-- ¡ESTA ES LA LÍNEA CLAVE! Apunta al index.html dentro de tu carpeta CYBERCATS-ST2 -->
-            <!-- Se añaden width y height explícitos para ayudar a Unity a inicializar el canvas -->
-            <iframe id="gameFrame" src="CYBERCATS-ST2/index.html" frameborder="0" allowfullscreen width="1024" height="576"></iframe>
-        </div>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-        <aside class="ad-banner ad-right">
-            <!-- Bloque de anuncio de Google Ads DERECHA -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-XXXXXXXXXXXXXX"
-                 data-ad-slot="TU_SLOT_ADS_DERECHA"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-            <!-- Asegúrate de cambiar "ca-pub-XXXXXXXXXXXXXX" y "TU_SLOT_ADS_DERECHA" -->
-        </aside>
-    </main>
+    <title>Unity Web Player | prototipe1</title>
 
-    <footer class="game-footer">
-        <!-- Puedes añadir créditos, información adicional aquí -->
-        <p>&copy; 2025 CYBERCATS-SYNTHWAVE. Todos los derechos reservados.</p>
-    </footer>
-</body>
+  </head>
+
+  <body style="text-align: center; padding: 0; border: 0; margin: 0;">
+
+    <canvas id="unity-canvas" width=1024 height=576 tabindex="-1" style="width: 1024px; height: 576px; background: #231F20"></canvas>
+
+    <script src="Build/CYBERCATS-ST.loader.js"></script>
+
+    <script>
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+
+        // Mobile device style: fill the whole browser client area with the game canvas:
+
+        var meta = document.createElement('meta');
+
+        meta.name = 'viewport';
+
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+
+        document.getElementsByTagName('head')[0].appendChild(meta);
+
+
+
+        var canvas = document.querySelector("#unity-canvas");
+
+        canvas.style.width = "100%";
+
+        canvas.style.height = "100%";
+
+        canvas.style.position = "fixed";
+
+
+
+        document.body.style.textAlign = "left";
+
+
+
+      }
+
+
+
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+
+        arguments: [],
+
+        dataUrl: "Build/CYBERCATS-ST.data",
+
+        frameworkUrl: "Build/CYBERCATS-ST.framework.js",
+
+        codeUrl: "Build/CYBERCATS-ST.wasm",
+
+        streamingAssetsUrl: "StreamingAssets",
+
+        companyName: "DefaultCompany",
+
+        productName: "prototipe1",
+
+        productVersion: "1.1",
+
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+
+      }).then((unityInstance) => {
+
+      }).catch((message) => {
+
+        alert(message);
+
+      });
+
+    </script>
+
+  </body>
+
 </html>
