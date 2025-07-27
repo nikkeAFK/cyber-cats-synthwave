@@ -14,6 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Usa vh para asegurar que ocupe toda la altura de la pantalla */
+    overflow: hidden; /* Evita barras de desplazamiento en el body principal */
 }
 
 /* Encabezado y Pie de Página */
@@ -44,29 +45,35 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-grow: 1; /* <-- CLAVE: Hace que esta sección crezca para ocupar el espacio sobrante */
+    align-items: center; /* Centra verticalmente en desktop */
+    flex-grow: 1; /* Hace que esta sección crezca para ocupar el espacio sobrante */
     padding: 20px; /* Añade un poco de aire alrededor */
     box-sizing: border-box;
     overflow: hidden; /* Previene desbordamientos en esta sección */
 }
 
-/* Contenedor del Juego (Wrapper del Iframe) */
+/* Contenedor del Juego (Wrapper del Iframe) - VISIBLE EN ESCRITORIO */
 .game-container-wrapper {
-    display: flex;
+    display: flex; /* Por defecto (escritorio), se muestra como flex para centrar */
     justify-content: center;
     align-items: center;
-    max-width: 1044px; /* Ancho máximo para el juego */
+    max-width: 1024px; /* Ancho máximo para el juego (coincide con el iframe width) */
     width: 100%;
+    overflow: hidden; /* Oculta cualquier desbordamiento del contenedor */
+    box-sizing: border-box;
 }
 
 /* Iframe del Juego */
 #gameFrame {
-    width: 100%; /* Ocupa el 100% de su contenedor (.game-container-wrapper) */
-    aspect-ratio: 1044 / 637; /* Mantiene la proporción correcta */
+    width: 100%; /* Ocupa el 100% del ancho de su contenedor (.game-container-wrapper) */
+    height: auto; /* La altura se ajustará automáticamente */
+    max-width: 1024px; /* Asegura que el iframe no sea más grande que el espacio deseado */
+    aspect-ratio: 1024 / 618; /* Mantiene la proporción del iframe (1024/618) */
     border: 2px solid #00ffff;
     background-color: #000;
     display: block;
+    overflow: hidden; /* ¡CRÍTICO! Esto evita las barras de desplazamiento internas */
+    box-sizing: border-box; /* Asegura que el borde no añada tamaño extra */
 }
 
 /* Banners de Anuncios */
@@ -77,37 +84,107 @@ body {
     border: 1px solid #6600ff;
     margin: 0 15px;
     flex-shrink: 0; /* Evita que los anuncios se encojan */
+    display: flex; /* Asegura que los banners se muestren por defecto */
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 0.9em;
+    text-align: center;
+    overflow: hidden;
+    box-sizing: border-box;
 }
+
+/* Mensaje para dispositivos móviles - OCULTO POR DEFECTO */
+.mobile-only-message {
+    display: none; /* Oculto por defecto en escritorio */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    max-width: 90%;
+    margin: 20px auto;
+    background-color: #2a1f3e; /* Un tono un poco más claro que el fondo */
+    border: 2px solid #00ffff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.mobile-only-message .message-text {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #e0e0e0;
+}
+
+.mobile-only-message .playstore-button {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.mobile-only-message .playstore-badge {
+    max-width: 200px; /* Ajusta el tamaño de la insignia */
+    height: auto;
+}
+
 
 /* ---- Media Queries para Responsividad ---- */
 
+/* Oculta los banners laterales en pantallas más pequeñas que 1400px */
 @media (max-width: 1400px) {
     .ad-banner {
-        display: none; /* Oculta los anuncios laterales */
+        display: none; 
     }
 }
 
-/* Para tablets y móviles */
+/* Para tablets y móviles (breakpoint 1024px) */
 @media (max-width: 1024px) {
     .game-layout {
-        /* Dejamos de usar flexbox para el layout principal en móvil, simplificando todo */
-        display: block; 
-        padding: 15px; /* Damos un poco de aire */
+        flex-direction: column; /* Apila los elementos */
+        align-items: center; /* Centra los elementos apilados */
+        padding: 15px;
+    }
+
+    /* Oculta el juego de escritorio y muestra el mensaje móvil */
+    .desktop-only {
+        display: none; /* Oculta el iframe del juego en móviles */
+    }
+
+    .mobile-only-message {
+        display: flex; /* Muestra el mensaje móvil */
     }
 
     .game-container-wrapper {
-        /* El método infalible para centrar un bloque */
-        margin: 0 auto; 
+        margin: 0; /* Quita márgenes horizontales */
+        width: 100%; /* El juego ocupa todo el ancho disponible */
+        max-width: none; /* Elimina el límite de ancho para adaptarse */
+    }
+    
+    /* El iframe del juego ya no se mostrará, así que estas reglas son menos críticas,
+       pero se mantienen para consistencia si se cambiara la lógica. */
+    #gameFrame {
+        width: 100%;
+        height: auto;
+        overflow: hidden; 
     }
 }
 
 /* Ajustes finos para móviles pequeños */
-@media (max-width: 480px) {
-    .game-title-text {
-        font-size: 1.8em;
+@media (max-width: 600px) {
+    .game-header {
+        padding: 10px 0;
     }
 
-    .game-layout {
-        padding: 10px;
+    .game-title-text {
+        font-size: 2em;
+    }
+
+    .mobile-only-message {
+        padding: 15px;
+    }
+    .mobile-only-message .message-text {
+        font-size: 1em;
+    }
+    .mobile-only-message .playstore-badge {
+        max-width: 150px;
     }
 }
