@@ -62,7 +62,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 1030px; /* Aumentado ligeramente para dar espacio extra */
+    max-width: 1280px; /* ¡ACTUALIZADO! Ancho máximo basado en la nueva resolución del juego */
     margin: 0 15px; /* Espacio alrededor del contenedor del juego */
     overflow: hidden; /* Oculta cualquier desbordamiento del contenedor del iframe */
 }
@@ -71,8 +71,8 @@ body {
 #gameFrame {
     width: 100%; /* El iframe ocupará el 100% del ancho de su contenedor */
     height: auto; /* La altura se ajustará automáticamente */
-    max-width: 1030px; /* Aumentado ligeramente para dar espacio extra */
-    aspect-ratio: 1024 / 576; /* Mantiene la proporción 16:9 (ancho / alto) */
+    max-width: 1280px; /* ¡ACTUALIZADO! Ancho máximo para el iframe */
+    aspect-ratio: 1280 / 720; /* ¡ACTUALIZADO! Mantiene la proporción 16:9 (ancho / alto) */
     
     display: block; /* Asegura que ocupe su propio espacio */
     background-color: #000; /* Fondo mientras carga el juego */
@@ -96,7 +96,7 @@ body {
 }
 
 /* Media Queries para responsividad */
-@media (max-width: 1024px) {
+@media (max-width: 1280px) { /* ¡ACTUALIZADO! El breakpoint ahora es 1280px */
     .game-layout {
         flex-direction: column; /* Apila los elementos en pantallas más pequeñas */
         align-items: center; /* Centra los elementos apilados */
