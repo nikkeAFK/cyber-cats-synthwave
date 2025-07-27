@@ -1,3 +1,8 @@
+/* Estilos CSS para una página web minimalista, solo con el juego. */
+html {
+    overflow: hidden; /* ¡NUEVO! Asegura que no haya barras de desplazamiento en el nivel más alto */
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #1a0f2e; /* Fondo oscuro synthwave */
@@ -32,7 +37,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%; /* Ocupa el 100% del ancho disponible */
-    max-width: 1024px; /* Ancho máximo igual a la resolución del juego */
+    max-width: 1026px; /* ¡AJUSTADO LIGERAMENTE! Para dar un poco de margen */
     margin: 0; /* Sin márgenes */
     overflow: hidden; /* Oculta cualquier desbordamiento del contenedor */
     box-sizing: border-box;
@@ -42,7 +47,7 @@ body {
 #gameFrame {
     width: 100%; /* El iframe ocupará el 100% del ancho de su contenedor */
     height: auto; /* La altura se ajustará automáticamente */
-    max-width: 1024px; /* Asegura que el iframe no sea más grande que el juego nativo */
+    max-width: 1026px; /* ¡AJUSTADO LIGERAMENTE! Asegura que el iframe no sea más grande que el juego nativo */
     aspect-ratio: 1024 / 576; /* Mantiene la proporción 16:9 (ancho / alto) */
     
     display: block; /* Asegura que ocupe su propio espacio */
