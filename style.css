@@ -64,26 +64,22 @@ body {
     align-items: center;
     max-width: 1024px; /* Ancho máximo basado en la resolución de tu juego */
     margin: 0 15px; /* Espacio alrededor del contenedor del juego */
-    overflow: hidden; /* ¡NUEVO! Oculta cualquier desbordamiento del contenedor del iframe */
+    overflow: hidden; /* Oculta cualquier desbordamiento del contenedor del iframe */
 }
 
 /* Estilos para el iframe del juego - ¡MODIFICADO AQUÍ! */
 #gameFrame {
-    /* Establece el tamaño fijo para el iframe en pantallas grandes */
-    width: 1024px;
-    height: 576px;
-    
-    max-width: 100%; /* Asegura que no se desborde en pantallas pequeñas */
-    aspect-ratio: 1024 / 576; /* Mantiene la proporción 16:9 */
+    width: 100%; /* El iframe ocupará el 100% del ancho de su contenedor */
+    height: auto; /* La altura se ajustará automáticamente */
+    max-width: 1024px; /* Asegura que el iframe no sea más grande que el juego nativo */
+    aspect-ratio: 1024 / 576; /* Mantiene la proporción 16:9 (ancho / alto) */
     
     display: block; /* Asegura que ocupe su propio espacio */
     background-color: #000; /* Fondo mientras carga el juego */
     border: 2px solid #00ffff; /* Borde neón para el juego */
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.7); /* Sombra brillante */
     
-    /* ¡CRÍTICO! Esto debe estar configurado para el iframe mismo */
-    overflow: hidden; /* Evita las barras de desplazamiento internas */
-    /* Asegúrate de que no haya padding o margin que cause el desbordamiento */
+    overflow: hidden; /* ¡CRÍTICO! Esto evita las barras de desplazamiento internas */
     padding: 0;
     margin: 0;
     border: none; /* Asegura que no haya borde predeterminado del iframe */
