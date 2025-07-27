@@ -54,26 +54,20 @@ body {
 
 /* Contenedor del Juego (Wrapper del Iframe) - VISIBLE EN ESCRITORIO */
 .game-container-wrapper {
-    display: flex; /* Por defecto (escritorio), se muestra como flex para centrar */
+    display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 1024px; /* Ancho máximo para el juego (coincide con el iframe width) */
+    max-width: 1044px; /* Ancho máximo para el juego */
     width: 100%;
-    overflow: hidden; /* Oculta cualquier desbordamiento del contenedor */
-    box-sizing: border-box;
 }
 
 /* Iframe del Juego */
 #gameFrame {
-    width: 100%; /* Ocupa el 100% del ancho de su contenedor (.game-container-wrapper) */
-    height: auto; /* La altura se ajustará automáticamente */
-    max-width: 1024px; /* Asegura que el iframe no sea más grande que el espacio deseado */
-    aspect-ratio: 1024 / 618; /* Mantiene la proporción del iframe (1024/618) */
+    width: 100%; /* Ocupa el 100% de su contenedor (.game-container-wrapper) */
+    aspect-ratio: 1044 / 637; /* Mantiene la proporción correcta */
     border: 2px solid #00ffff;
     background-color: #000;
     display: block;
-    overflow: hidden; /* ¡CRÍTICO! Esto evita las barras de desplazamiento internas */
-    box-sizing: border-box; /* Asegura que el borde no añada tamaño extra */
 }
 
 /* Banners de Anuncios */
