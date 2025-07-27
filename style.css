@@ -79,47 +79,35 @@ body {
     flex-shrink: 0; /* Evita que los anuncios se encojan */
 }
 
-/* Media Queries para Responsividad */
+/* ---- Media Queries para Responsividad ---- */
 
-/* Para pantallas más pequeñas donde los anuncios laterales ya no se muestran */
 @media (max-width: 1400px) {
     .ad-banner {
-        display: none;
-    }
-
-    .game-layout {
-        justify-content: center; /* Asegura que el contenido esté centrado horizontalmente */
-        padding-left: 10px; /* Añade un poco de espacio a la izquierda */
-        padding-right: 10px; /* Añade un poco de espacio a la derecha */
+        display: none; /* Oculta los anuncios laterales */
     }
 }
 
-@media (max-width: 768px) {
+/* Para tablets y móviles */
+@media (max-width: 1024px) {
+    .game-layout {
+        /* Dejamos de usar flexbox para el layout principal en móvil, simplificando todo */
+        display: block; 
+        padding: 15px; /* Damos un poco de aire */
+    }
+
+    .game-container-wrapper {
+        /* El método infalible para centrar un bloque */
+        margin: 0 auto; 
+    }
+}
+
+/* Ajustes finos para móviles pequeños */
+@media (max-width: 480px) {
     .game-title-text {
-        font-size: 2em;
+        font-size: 1.8em;
     }
 
     .game-layout {
         padding: 10px;
-        align-items: flex-start; /* Alinea el contenido al inicio (arriba) en pantallas pequeñas */
-    }
-
-    .game-container-wrapper {
-        width: 100%; /* Asegura que el contenedor del juego ocupe todo el ancho */
-    }
-
-    #gameFrame {
-        width: 100%; /* El iframe también debe ocupar todo el ancho */
-    }
-}
-
-@media (max-width: 480px) { /* Para pantallas aún más pequeñas (móviles) */
-    .game-title-text {
-        font-size: 1.5em;
-    }
-
-    .game-layout {
-        padding-left: 5px;
-        padding-right: 5px;
     }
 }
