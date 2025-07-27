@@ -49,17 +49,16 @@ body {
     margin: 0; /* Sin márgenes */
     overflow: hidden; /* Oculta cualquier desbordamiento del contenedor */
     box-sizing: border-box;
-    display: flex; /* Añadido para centrar el iframe internamente si es necesario */
-    justify-content: center;
-    align-items: center;
+    /* Eliminamos display: flex y justify/align-items de aquí, el iframe se centrará con absolute */
 }
 
-/* Estilos para el iframe del juego - ¡SIMPLIFICADO Y AJUSTADO AQUÍ! */
+/* Estilos para el iframe del juego - ¡AJUSTADO AQUÍ PARA CENTRADO! */
 #gameFrame {
     /* El iframe se posiciona absolutamente para llenar su contenedor con el aspect ratio */
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para el centrado perfecto */
     width: 100%; /* Ocupa el 100% del ancho del contenedor */
     height: 100%; /* Ocupa el 100% de la altura del contenedor */
     
@@ -83,8 +82,9 @@ body {
     #gameFrame {
         /* En pantallas pequeñas, el iframe se ajusta al 100% de su contenedor */
         position: absolute; /* Mantiene el posicionamiento absoluto */
-        top: 0;
-        left: 0;
+        top: 50%; /* Centra verticalmente */
+        left: 50%; /* Centra horizontalmente */
+        transform: translate(-50%, -50%); /* Ajusta para el centrado perfecto */
         width: 100%;
         height: 100%;
     }
