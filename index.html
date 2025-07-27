@@ -38,10 +38,11 @@
             <!-- Asegúrate de cambiar "ca-pub-XXXXXXXXXXXXXX" y "TU_SLOT_ADS_IZQUIERDA" -->
         </aside>
 
-        <div class="game-container-wrapper">
+          <div class="game-container-wrapper">
             <!-- Contenedor donde se cargará tu juego de Unity como un iframe -->
-            <!-- ¡ACTUALIZADO! Dimensiones del iframe: 1064x637 -->
-            <iframe id="gameFrame" src="CYBERCATS-ST2/index.html" frameborder="0" allowfullscreen></iframe>
+            <!-- ¡ESTA ES LA LÍNEA CLAVE! Apunta al index.html dentro de tu carpeta CYBERCATS-ST2 -->
+            <!-- Se añaden width y height explícitos para ayudar a Unity a inicializar el canvas -->
+            <iframe id="gameFrame" src="CYBERCATS-ST2/index.html" frameborder="0" allowfullscreen width="1024" height="587"></iframe>
         </div>
 
         <aside class="ad-banner ad-right">
