@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Usa vh para asegurar que ocupe toda la altura de la pantalla */
-    
+    overflow: hidden; /* Evita barras de desplazamiento en el body principal */
 }
 
 /* Encabezado y Pie de Página */
@@ -52,7 +52,7 @@ body {
     overflow: hidden; /* Previene desbordamientos en esta sección */
 }
 
-/* Contenedor del Juego (Wrapper del Iframe) */
+/* Contenedor del Juego (Wrapper del Iframe) - ¡ACTUALIZADO TAL CUAL ME LO ENVIASTE! */
 .game-container-wrapper {
     display: flex;
     justify-content: center;
@@ -61,7 +61,7 @@ body {
     width: 100%;
 }
 
-/* Iframe del Juego */
+/* Iframe del Juego - ¡ACTUALIZADO TAL CUAL ME LO ENVIASTE! */
 #gameFrame {
     width: 100%; /* Ocupa el 100% de su contenedor (.game-container-wrapper) */
     aspect-ratio: 1044 / 637; /* Mantiene la proporción correcta */
@@ -120,6 +120,44 @@ body {
     height: auto;
 }
 
+/* Estilos para la sección de compartir */
+.share-section {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px; /* Espacio arriba */
+    box-sizing: border-box;
+}
+
+.share-button {
+    background-color: #6600ff; /* Color neón morado */
+    color: #fff;
+    border: 2px solid #00ffff; /* Borde neón cian */
+    padding: 12px 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); /* Sombra neón */
+}
+
+.share-button:hover {
+    background-color: #00ffff; /* Cambia a cian al pasar el ratón */
+    color: #1a0f2e; /* Texto oscuro */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+}
+
+.copy-confirm {
+    margin-left: 15px;
+    color: #00ff00; /* Color de confirmación verde neón */
+    font-weight: bold;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
 
 /* ---- Media Queries para Responsividad ---- */
 
@@ -159,6 +197,21 @@ body {
         width: 100%;
         height: auto;
         overflow: hidden; 
+    }
+
+    /* Ajustes para el botón de compartir en móvil */
+    .share-section {
+        margin-top: 30px; /* Más espacio en móvil para separar del mensaje */
+        padding: 10px;
+    }
+    .share-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+    .copy-confirm {
+        display: block; /* En móvil, el mensaje puede ir debajo */
+        margin-top: 10px;
+        margin-left: 0;
     }
 }
 
