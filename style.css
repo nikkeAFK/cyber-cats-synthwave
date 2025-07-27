@@ -1,3 +1,4 @@
+/* Estilos CSS para una página web minimalista, solo con el juego. */
 html {
     overflow: hidden; /* Asegura que no haya barras de desplazamiento en el nivel más alto */
 }
@@ -40,7 +41,7 @@ body {
     margin: 0; /* Sin márgenes */
     overflow: hidden; /* Oculta cualquier desbordamiento del contenedor */
     box-sizing: border-box;
-    /* Eliminado: position: relative; ya que no usaremos posicionamiento absoluto en el iframe */
+    position: relative; /* ¡RE-AÑADIDO! Necesario para el posicionamiento absoluto del iframe */
 }
 
 /* Estilos para el iframe del juego - ¡ACTUALIZADO AQUÍ! */
@@ -58,8 +59,11 @@ body {
     overflow: hidden; /* ¡CRÍTICO! Esto evita las barras de desplazamiento internas */
     box-sizing: border-box;
     
-    /* Eliminadas: Propiedades de posicionamiento absoluto para simplificar el centrado */
-    /* position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); */
+    /* ¡RE-AÑADIDO! Propiedades de posicionamiento absoluto para centrar el iframe */
+    position: absolute; /* Posiciona el iframe de forma absoluta dentro de su contenedor */
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para el centrado perfecto */
 }
 
 /* Media Queries para responsividad */
@@ -68,7 +72,9 @@ body {
         padding: 0;
     }
     #gameFrame {
-        /* No se necesitan cambios de posicionamiento aquí, ya que el centrado es por flexbox */
-        /* Eliminadas: position: relative; top: auto; left: auto; transform: none; */
+        position: relative; /* Vuelve a relativo para responsividad en pantallas más pequeñas */
+        top: auto;
+        left: auto;
+        transform: none;
     }
 }
