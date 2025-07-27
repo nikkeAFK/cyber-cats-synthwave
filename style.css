@@ -76,8 +76,8 @@ body {
 #gameFrame {
     width: 400%; /* El iframe ocupará el 100% del ancho de su contenedor */
     height: 400%; /* La altura se ajustará automáticamente */
-    max-width: 1280px; /* ¡ACTUALIZADO! Ancho máximo para el iframe */
-    aspect-ratio: 1280 / 720; /* ¡ACTUALIZADO! Mantiene la proporción 16:9 (ancho / alto) */
+    max-width: 1024px; /* ¡ACTUALIZADO! Ancho máximo para el iframe */
+    aspect-ratio: 1024 / 576; /* ¡ACTUALIZADO! Mantiene la proporción 16:9 (ancho / alto) */
     
     display: block; /* Asegura que ocupe su propio espacio */
     background-color: #000; /* Fondo mientras carga el juego */
