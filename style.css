@@ -1,4 +1,3 @@
-/* El archivo style.css ha sido actualizado para mejorar la compatibilidad del iframe con Unity. */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #1a0f2e; /* Fondo oscuro synthwave */
@@ -62,7 +61,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 1024px; /* Ancho máximo basado en la resolución de tu juego */
+    max-width: 1030px; /* Aumentado ligeramente para dar espacio extra */
     margin: 0 15px; /* Espacio alrededor del contenedor del juego */
     overflow: hidden; /* Oculta cualquier desbordamiento del contenedor del iframe */
 }
@@ -71,7 +70,7 @@ body {
 #gameFrame {
     width: 100%; /* El iframe ocupará el 100% del ancho de su contenedor */
     height: auto; /* La altura se ajustará automáticamente */
-    max-width: 1024px; /* Asegura que el iframe no sea más grande que el juego nativo */
+    max-width: 1030px; /* Aumentado ligeramente para dar espacio extra */
     aspect-ratio: 1024 / 576; /* Mantiene la proporción 16:9 (ancho / alto) */
     
     display: block; /* Asegura que ocupe su propio espacio */
