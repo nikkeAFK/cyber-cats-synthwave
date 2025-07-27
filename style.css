@@ -37,7 +37,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%; /* Ocupa el 100% del ancho disponible */
-    max-width: 1920px; /* ¡ACTUALIZADO! Ancho máximo para el espacio del juego */
+    max-width: 1920px; /* ¡ACTUALIZADO! Ancho máximo para el espacio del iframe */
     margin: 0; /* Sin márgenes */
     overflow: hidden; /* Oculta cualquier desbordamiento del contenedor */
     box-sizing: border-box;
@@ -52,7 +52,7 @@ body {
     aspect-ratio: 1920 / 1080; /* ¡ACTUALIZADO! Mantiene la proporción 16:9 (ancho / alto) */
     
     display: block; /* Asegura que ocupe su propio espacio */
-    background-color: #000; /* Fondo mientras carga el juego */
+    background-color: #000; /* Fondo mientras carga el juego (verás barras negras si el juego es más pequeño) */
     border: none; /* Sin borde */
     padding: 0;
     margin: 0;
@@ -72,7 +72,7 @@ body {
         padding: 0; /* Sin padding en pantallas pequeñas */
     }
     #gameFrame {
-        position: relative; /* Vuelve a relativo para responsividad en pantallas más pequeñas que 1920px */
+        position: relative; /* Vuelve a relativo para responsividad en pantallas más pequeñas */
         top: auto;
         left: auto;
         transform: none;
