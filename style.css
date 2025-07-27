@@ -9,6 +9,7 @@ body {
     flex-direction: column;
     min-height: 100vh; /* Para que el footer se quede abajo */
     align-items: center; /* Centra el contenido horizontalmente */
+    overflow-x: hidden; /* ¡NUEVO! Evita barras de desplazamiento horizontales en el body principal */
 }
 
 /* Estilos para el encabezado con la imagen del título */
@@ -67,17 +68,18 @@ body {
 
 /* Estilos para el iframe del juego - ¡MODIFICADO AQUÍ PARA EVITAR RECORTE Y BARRAS! */
 #gameFrame {
-    width: 100%; /* El iframe ocupará el 100% del ancho de su contenedor */
-    height: auto; /* La altura se ajustará automáticamente */
+    /* Establece el tamaño fijo para el iframe en pantallas grandes */
+    width: 1024px;
+    height: 576px;
+    
     max-width: 100%; /* Asegura que no se desborde en pantallas pequeñas */
-    aspect-ratio: 1024 / 576; /* Mantiene la proporción 16:9 (ancho / alto) */
+    aspect-ratio: 1024 / 576; /* Mantiene la proporción 16:9 */
     
     display: block; /* Asegura que ocupe su propio espacio */
     background-color: #000; /* Fondo mientras carga el juego */
     border: 2px solid #00ffff; /* Borde neón para el juego */
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.7); /* Sombra brillante */
-    overflow: hidden; /* ¡CRÍTICO! Esto evita las barras de desplazamiento internas */
-    /* Las propiedades 'padding-bottom', 'height: 0', 'position: relative' han sido reemplazadas por 'aspect-ratio' */
+    overflow: hidden; /* ¡CRÍTICO! Esto evita las barras de desplazamiento en el iframe */
 }
 
 /* Pie de página */
@@ -110,6 +112,12 @@ body {
         margin: 0; /* Quita márgenes horizontales */
         width: 100%; /* El juego ocupa todo el ancho disponible */
         max-width: none; /* Elimina el límite de ancho para adaptarse */
+    }
+
+    #gameFrame {
+        /* En pantallas más pequeñas, el iframe se vuelve responsivo */
+        width: 100%;
+        height: auto; /* Permite que la altura se ajuste con aspect-ratio */
     }
 }
 
