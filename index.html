@@ -4,19 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CYBERCATS-SYNTHWAVE - ¡Juega Ahora! - Juego de Plataformas Retro</title>
+    <!-- Nuevas meta etiquetas para SEO -->
     <meta name="description" content="Juega CYBERCATS-SYNTHWAVE, un emocionante juego de plataformas y acción con estética retro-futurista synthwave directamente en tu navegador. ¡Salta, lucha y explora este arcade gratis!">
     <meta name="keywords" content="CYBERCATS-SYNTHWAVE, juego online, jugar gratis, juego de plataformas, acción, aventura, retro, synthwave, cyberpunk, arcade, minijuego, HTML5, WebGL">
-    <meta name="author" content="JOSE ROBERTO NORIEGA HERNANDEZ"> <link rel="stylesheet" href="style.css">
-    <meta name="google-site-verification" content="t948jYnxH8ri2Nzv4WgNfN6ZG9yHCfX-UuAkcILGJDc" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXX" crossorigin="anonymous"></script>   
-    </head>
+    <meta name="author" content="Tu Nombre o Nombre de la Empresa"> <!-- Considera añadir tu nombre o el de tu equipo/empresa -->
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Enlaza tu propio favicon si tienes uno -->
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+
+    <!-- ¡IMPORTANTE! Espacio para tus scripts de Google Ads -->
+    <!-- Reemplaza con tus propios códigos de Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    <!-- Asegúrate de cambiar "ca-pub-XXXXXXXXXXXXXX" con tu ID de editor de AdSense -->
+
+    <!-- NOTA: Los scripts de Unity WebGL (loader.js, etc.) NO van aquí. -->
+    <!-- Se cargarán automáticamente desde CYBERCATS-ST2/index.html dentro del iframe. -->
+</head>
 <body>
+    <!-- Encabezado con el logotipo -->
     <header class="game-header">
+        <!-- Puedes añadir una imagen de título aquí. Ejemplo: -->
+        <!-- <img src="tu_imagen_titulo.png" alt="CYBERCATS-SYNTHWAVE - Logotipo" class="game-title-image"> -->
+        <!-- O simplemente un texto estilizado -->
         <h1 class="game-title-text">CYBERCATS-SYNTHWAVE</h1>
     </header>
 
     <main class="game-layout">
         <aside class="ad-banner ad-left">
+            <!-- Bloque de anuncio de Google Ads IZQUIERDA -->
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-XXXXXXXXXXXXXX"
@@ -24,12 +40,16 @@
             <script>
                  (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-            </aside>
+            <!-- Asegúrate de cambiar "ca-pub-XXXXXXXXXXXXXX" y "TU_SLOT_ADS_IZQUIERDA" -->
+        </aside>
 
+        <!-- Contenedor del juego para escritorio -->
         <div class="game-container-wrapper desktop-only">
+            <!-- Contenedor donde se cargará tu juego de Unity como un iframe -->
             <iframe id="gameFrame" src="CYBERCATS-ST2/index.html" frameborder="0" allowfullscreen width="1024" height="618"></iframe>
         </div>
 
+        <!-- Mensaje para dispositivos móviles -->
         <div class="mobile-only-message">
             <p class="message-text">¡CYBERCATS-SYNTHWAVE no está disponible para jugar en dispositivos móviles desde el navegador!</p>
             <p class="message-text">Descárgalo ahora en la Play Store para disfrutar de la experiencia completa:</p>
@@ -39,6 +59,7 @@
             </div>
 
         <aside class="ad-banner ad-right">
+            <!-- Bloque de anuncio de Google Ads DERECHA -->
             <ins class="adsbygoogle"
                  style="display:block"
                  data-ad-client="ca-pub-XXXXXXXXXXXXXX"
@@ -49,7 +70,14 @@
             </aside>
     </main>
 
+    <!-- Nueva sección para el botón de compartir -->
+    <div class="share-section">
+        <button id="shareButton" class="share-button">Compartir Enlace</button>
+        <span id="copyConfirm" class="copy-confirm">¡Enlace copiado!</span>
+    </div>
+
     <footer class="game-footer">
+        <!-- Puedes añadir créditos, información adicional aquí -->
         <p>&copy; 2025 CYBERCATS-SYNTHWAVE. Todos los derechos reservados.</p>
         <p class="attributions-text">
             Música de <a href="https://pixabay.com/es/users/nocopyrightsound633-47610058/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=323176" target="_blank">NoCopyrightSound633</a> de <a href="https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=323176" target="_blank">Pixabay</a><br>
@@ -62,9 +90,33 @@
             Esta licencia se copia a continuación, y también está disponible con una FAQ en: <a href="http://scripts.sil.org/OFL" target="_blank">http://scripts.sil.org/OFL</a>
         </p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const shareButton = document.getElementById('shareButton');
+            const copyConfirm = document.getElementById('copyConfirm');
+
+            shareButton.addEventListener('click', function() {
+                const pageUrl = window.location.href;
+                const tempInput = document.createElement('textarea');
+                tempInput.value = pageUrl;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy'); // Usar document.execCommand('copy') para compatibilidad con iFrames
+                document.body.removeChild(tempInput);
+
+                // Mostrar mensaje de confirmación
+                copyConfirm.style.opacity = '1';
+                copyConfirm.style.visibility = 'visible';
+                setTimeout(() => {
+                    copyConfirm.style.opacity = '0';
+                    copyConfirm.style.visibility = 'hidden';
+                }, 2000); // Ocultar después de 2 segundos
+            });
+        });
+    </script>
 </body>
 </html>
-
 
 
 
