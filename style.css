@@ -31,7 +31,7 @@ body {
     flex-grow: 1; /* Permite que ocupe el espacio disponible */
 }
 
-/* Contenedor del juego, que envuelve al iframe - ¡SIMPLIFICADO AQUÍ! */
+/* Contenedor del juego, que envuelve al iframe - ¡ACTUALIZADO AQUÍ! */
 .game-container-wrapper {
     display: flex;
     justify-content: center;
@@ -41,10 +41,10 @@ body {
     margin: 0; /* Sin márgenes */
     overflow: hidden; /* Oculta cualquier desbordamiento del contenedor */
     box-sizing: border-box;
-    /* Eliminadas: position: relative; */
+    position: relative; /* ¡RE-AÑADIDO! Necesario para el posicionamiento absoluto del iframe */
 }
 
-/* Estilos para el iframe del juego - ¡SIMPLIFICADO AQUÍ! */
+/* Estilos para el iframe del juego - ¡ACTUALIZADO AQUÍ! */
 #gameFrame {
     width: 100%; /* El iframe ocupará el 100% del ancho de su contenedor */
     height: auto; /* La altura se ajustará automáticamente */
@@ -59,7 +59,11 @@ body {
     overflow: hidden; /* ¡CRÍTICO! Esto evita las barras de desplazamiento internas */
     box-sizing: border-box;
     
-    /* Eliminadas: position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); */
+    /* ¡RE-AÑADIDO! Propiedades de posicionamiento absoluto para centrar el iframe */
+    position: absolute; /* Posiciona el iframe de forma absoluta dentro de su contenedor */
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para el centrado perfecto */
 }
 
 /* Media Queries para responsividad */
@@ -68,8 +72,9 @@ body {
         padding: 0;
     }
     #gameFrame {
-        /* No se necesitan cambios de posicionamiento aquí, ya que el centrado es por flexbox */
-        /* Eliminadas: position: relative; top: auto; left: auto; transform: none; */
+        position: relative; /* Vuelve a relativo para responsividad en pantallas más pequeñas */
+        top: auto;
+        left: auto;
+        transform: none;
     }
 }
-
