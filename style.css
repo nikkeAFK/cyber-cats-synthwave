@@ -1,3 +1,4 @@
+/* Estilos CSS para una página web minimalista, solo con el juego. */
 html {
     overflow: hidden; /* Asegura que no haya barras de desplazamiento en el nivel más alto */
 }
@@ -36,44 +37,38 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%; /* Ocupa el 100% del ancho disponible */
-    max-width: 1600px; /* ¡ACTUALIZADO! Ancho máximo para el espacio del iframe */
+    max-width: 1600px; /* Ancho máximo para el espacio del iframe */
     margin: 0; /* Sin márgenes */
-    overflow: hidden; /* Oculta cualquier desbordamiento del contenedor */
+    /* overflow: hidden; -- Eliminado aquí para probar si causaba el problema */
     box-sizing: border-box;
-    position: relative; /* Añadido para asegurar el posicionamiento del iframe */
+    /* position: relative; -- Eliminado, ya no es necesario con el centrado flexbox */
 }
 
-/* Estilos para el iframe del juego */
+/* Estilos para el iframe del juego - ¡SIMPLIFICADO AQUÍ! */
 #gameFrame {
     width: 100%; /* El iframe ocupará el 100% del ancho de su contenedor */
     height: auto; /* La altura se ajustará automáticamente */
-    max-width: 1600px; /* ¡ACTUALIZADO! Asegura que el iframe no sea más grande que el espacio deseado */
-    aspect-ratio: 1600 / 900; /* ¡ACTUALIZADO! Mantiene la proporción 16:9 (ancho / alto) */
+    max-width: 1600px; /* Asegura que el iframe no sea más grande que el espacio deseado */
+    aspect-ratio: 1600 / 900; /* Mantiene la proporción 16:9 (ancho / alto) */
     
     display: block; /* Asegura que ocupe su propio espacio */
-    background-color: #000; /* Fondo mientras carga el juego (verás barras negras si el juego es más pequeño) */
+    background-color: #000; /* Fondo mientras carga el juego (si hay espacio extra) */
     border: none; /* Sin borde */
     padding: 0;
     margin: 0;
-    overflow: hidden; /* ¡CRÍTICO! Esto evita las barras de desplazamiento internas */
+    overflow: hidden; /* ¡VUELVE A AÑADIRSE AQUÍ! Para controlar las barras internas del iframe */
     box-sizing: border-box;
     
-    /* Posicionamiento absoluto para asegurar que no haya espacio extra */
-    position: absolute; /* Posiciona el iframe de forma absoluta dentro de su contenedor */
-    top: 50%; /* Centra verticalmente */
-    left: 50%; /* Centra horizontalmente */
-    transform: translate(-50%, -50%); /* Ajusta para el centrado perfecto */
+    /* Propiedades de posicionamiento absoluto eliminadas para simplificar el centrado */
+    /* top: 50%; left: 50%; transform: translate(-50%, -50%); */
 }
 
 /* Media Queries para responsividad */
-@media (max-width: 1600px) { /* ¡ACTUALIZADO! El breakpoint ahora es 1600px */
+@media (max-width: 1600px) {
     .game-container-wrapper {
-        padding: 0; /* Sin padding en pantallas pequeñas */
+        padding: 0;
     }
     #gameFrame {
-        position: relative; /* Vuelve a relativo para responsividad en pantallas más pequeñas */
-        top: auto;
-        left: auto;
-        transform: none;
+        /* No se necesitan cambios de posicionamiento aquí, ya que el centrado es por flexbox */
     }
 }
