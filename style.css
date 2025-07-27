@@ -46,7 +46,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center; /* Centra verticalmente en desktop */
-    flex-grow: 1; /* Hace que esta sección crezca para ocupar el espacio sobrante */
+    flex-grow: 1; /* <-- CLAVE: Hace que esta sección crezca para ocupar el espacio sobrante */
     padding: 20px; /* Añade un poco de aire alrededor */
     box-sizing: border-box;
     overflow: hidden; /* Previene desbordamientos en esta sección */
@@ -59,15 +59,21 @@ body {
     align-items: center;
     max-width: 1044px; /* Ancho máximo para el juego */
     width: 100%;
+    overflow: hidden; /* Oculta cualquier desbordamiento del contenedor */
+    box-sizing: border-box;
 }
 
 /* Iframe del Juego */
 #gameFrame {
     width: 100%; /* Ocupa el 100% de su contenedor (.game-container-wrapper) */
-    aspect-ratio: 1044 / 637; /* Mantiene la proporción correcta */
+    height: auto; /* La altura se ajustará automáticamente */
+    max-width: 1024px; /* Asegura que el iframe no sea más grande que el espacio deseado */
+    aspect-ratio: 1024 / 618; /* Mantiene la proporción del iframe (1024/618) */
     border: 2px solid #00ffff;
     background-color: #000;
     display: block;
+    overflow: hidden; /* ¡CRÍTICO! Esto evita las barras de desplazamiento internas */
+    box-sizing: border-box; /* Asegura que el borde no añada tamaño extra */
 }
 
 /* Banners de Anuncios */
