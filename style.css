@@ -10,6 +10,7 @@ body {
     min-height: 100vh; /* Para que el footer se quede abajo */
     align-items: center; /* Centra el contenido horizontalmente */
     overflow-x: hidden; /* Evita barras de desplazamiento horizontales en el body principal */
+    box-sizing: border-box; /* Incluye padding y border en el tamaño total del elemento */
 }
 
 /* Estilos para el encabezado con la imagen del título */
@@ -18,6 +19,7 @@ body {
     text-align: center;
     padding: 20px 0;
     background-color: #1a0f2e; /* Mismo fondo para integrar */
+    box-sizing: border-box;
 }
 
 .game-title-image {
@@ -25,6 +27,7 @@ body {
     height: auto;
     display: block; /* Para centrarla con margin auto */
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 /* Contenedor principal para los anuncios y el juego */
@@ -54,6 +57,7 @@ body {
     font-size: 0.9em;
     text-align: center;
     overflow: hidden; /* Asegura que el contenido del anuncio no se salga */
+    box-sizing: border-box;
 }
 
 /* Contenedor del juego, que será el centro - ¡MODIFICADO AQUÍ! */
@@ -62,9 +66,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 1280px; /* ¡ACTUALIZADO! Ancho máximo basado en la nueva resolución del juego */
+    max-width: 1280px; /* ¡ACTUALIZADO! Ancho máximo basado en la nueva resolución del espacio */
     margin: 0 15px; /* Espacio alrededor del contenedor del juego */
     overflow: hidden; /* Oculta cualquier desbordamiento del contenedor del iframe */
+    box-sizing: border-box;
 }
 
 /* Estilos para el iframe del juego - ¡MODIFICADO AQUÍ! */
@@ -83,6 +88,7 @@ body {
     padding: 0;
     margin: 0;
     border: none; /* Asegura que no haya borde predeterminado del iframe */
+    box-sizing: border-box; /* Incluye padding y border en el tamaño total del elemento */
 }
 
 /* Pie de página */
@@ -93,6 +99,7 @@ body {
     margin-top: auto; /* Empuja el footer hacia abajo */
     background-color: #1a0f2e;
     border-top: 1px solid #440088;
+    box-sizing: border-box;
 }
 
 /* Media Queries para responsividad */
