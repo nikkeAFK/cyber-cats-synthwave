@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBERCATS-SYNTHWAVE - ¡Juega Ahora!</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Enlaza tu propio favicon si tienes uno -->
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+
+    <!-- ¡IMPORTANTE! Espacio para tus scripts de Google Ads -->
+    <!-- Reemplaza con tus propios códigos de Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    <!-- Asegúrate de cambiar "ca-pub-XXXXXXXXXXXXXX" con tu ID de editor de AdSense -->
+
+    <!-- NOTA: Los scripts de Unity WebGL (loader.js, etc.) NO van aquí. -->
+    <!-- Se cargarán automáticamente desde CYBERCATS-ST2/index.html dentro del iframe. -->
+</head>
+<body>
+    <header class="game-header">
+        <!-- Espacio para tu imagen de título y logotipo -->
+        <img src="tu_imagen_titulo.png" alt="CYBERCATS-SYNTHWAVE - Logotipo" class="game-title-image">
+        <!-- Asegúrate de cambiar "tu_imagen_titulo.png" por la ruta correcta de tu imagen -->
+    </header>
+
+    <main class="game-layout">
+        <aside class="ad-banner ad-left">
+            <!-- Bloque de anuncio de Google Ads IZQUIERDA -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXX"
+                 data-ad-slot="TU_SLOT_ADS_IZQUIERDA"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            <!-- Asegúrate de cambiar "ca-pub-XXXXXXXXXXXXXX" y "TU_SLOT_ADS_IZQUIERDA" -->
+        </aside>
+
+        <div class="game-container-wrapper">
+            <!-- Contenedor donde se cargará tu juego de Unity como un iframe -->
+            <!-- ¡ESTA ES LA LÍNEA CLAVE! Apunta al index.html dentro de tu carpeta CYBERCATS-ST2 -->
+            <!-- Se añaden width y height explícitos para ayudar a Unity a inicializar el canvas -->
+            <iframe id="gameFrame" src="CYBERCATS-ST2/index.html" frameborder="0" allowfullscreen width="1024" height="576"></iframe>
+        </div>
+
+        <aside class="ad-banner ad-right">
+            <!-- Bloque de anuncio de Google Ads DERECHA -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXX"
+                 data-ad-slot="TU_SLOT_ADS_DERECHA"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            <!-- Asegúrate de cambiar "ca-pub-XXXXXXXXXXXXXX" y "TU_SLOT_ADS_DERECHA" -->
+        </aside>
+    </main>
+
+    <footer class="game-footer">
+        <!-- Puedes añadir créditos, información adicional aquí -->
+        <p>&copy; 2025 CYBERCATS-SYNTHWAVE. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Se ha eliminado el script onload que intentaba forzar el redibujado del canvas de Unity,
+         ya que estaba generando errores de seguridad en el entorno local.
+         Si el problema persiste después de estos cambios, el despliegue en un hosting web real
+         (como GitHub Pages o Netlify) es el siguiente paso para descartar por completo
+         las restricciones de seguridad del navegador en entornos locales. -->
+</body>
+</html>
