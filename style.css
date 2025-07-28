@@ -49,7 +49,7 @@ body {
     flex-grow: 1; /* <-- CLAVE: Hace que esta sección crezca para ocupar el espacio sobrante */
     padding: 20px; /* Añade un poco de aire alrededor */
     box-sizing: border-box;
-    overflow: hidden; /* Previene desbordamientos en esta sección */
+
 }
 
 /* Contenedor del Juego (Wrapper del Iframe) - ¡ACTUALIZADO TAL CUAL ME LO ENVIASTE! */
@@ -84,7 +84,7 @@ body {
     color: #fff;
     font-size: 0.9em;
     text-align: center;
-    overflow: hidden;
+
     box-sizing: border-box;
 }
 
