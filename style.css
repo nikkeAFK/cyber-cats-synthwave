@@ -14,7 +14,6 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Usa vh para asegurar que ocupe toda la altura de la pantalla */
-
 }
 
 /* Encabezado y Pie de Página */
@@ -49,10 +48,9 @@ body {
     flex-grow: 1; /* <-- CLAVE: Hace que esta sección crezca para ocupar el espacio sobrante */
     padding: 20px; /* Añade un poco de aire alrededor */
     box-sizing: border-box;
-
 }
 
-/* Contenedor del Juego (Wrapper del Iframe) - ¡ACTUALIZADO TAL CUAL ME LO ENVIASTE! */
+/* Contenedor del Juego (Wrapper del Iframe) */
 .game-container-wrapper {
     display: flex;
     justify-content: center;
@@ -61,7 +59,7 @@ body {
     width: 100%;
 }
 
-/* Iframe del Juego - ¡ACTUALIZADO TAL CUAL ME LO ENVIASTE! */
+/* Iframe del Juego */
 #gameFrame {
     width: 100%; /* Ocupa el 100% de su contenedor (.game-container-wrapper) */
     height:100%;
@@ -86,7 +84,6 @@ body {
     color: #fff;
     font-size: 0.9em;
     text-align: center;
-
     box-sizing: border-box;
 }
 
@@ -161,13 +158,48 @@ body {
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
+/* Sección de donaciones */
+.donation-section {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px; /* Espacio arriba */
+    box-sizing: border-box;
+    border-top: 1px solid #440088; /* Separador similar al footer */
+    background-color: #1a0f2e; /* Color de fondo similar al header/footer */
+}
+
+.donation-text {
+    font-size: 1.2em;
+    color: #00ffff; /* Color neón cian para el texto */
+    margin-bottom: 15px;
+    text-shadow: 0 0 8px #00ffff; /* Pequeña sombra neón */
+}
+
+.donation-section form {
+    display: inline-block; /* Para centrar el formulario si es necesario */
+    margin: 0 auto;
+}
+
+/* Puedes añadir más estilos si quieres customizar el botón de PayPal si usas una imagen propia o un estilo diferente */
+/* Por ejemplo, si el botón de PayPal es una imagen y quieres que tenga un borde neón: */
+.donation-section form input[type="image"] {
+    border: 2px solid #6600ff; /* Borde neón morado */
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(102, 0, 255, 0.5);
+}
+
+.donation-section form input[type="image"]:hover {
+    box-shadow: 0 0 20px rgba(102, 0, 255, 0.8);
+}
 
 /* ---- Media Queries para Responsividad ---- */
 
 /* Oculta los banners laterales en pantallas más pequeñas que 1400px */
 @media (max-width: 1400px) {
     .ad-banner {
-        display: none; 
+        display: none;
     }
 }
 
@@ -193,13 +225,13 @@ body {
         width: 100%; /* El juego ocupa todo el ancho disponible */
         max-width: none; /* Elimina el límite de ancho para adaptarse */
     }
-    
+
     /* El iframe del juego ya no se mostrará, así que estas reglas son menos críticas,
        pero se mantienen para consistencia si se cambiara la lógica. */
     #gameFrame {
         width: 100%;
         height: auto;
-        overflow: hidden; 
+        overflow: hidden;
     }
 
     /* Ajustes para el botón de compartir en móvil */
@@ -209,7 +241,7 @@ body {
     }
     .share-button {
         padding: 10px 20px;
-         margin-left: -10px;
+        margin-left: -10px; /* Ajusta el margen para centrar mejor en móviles */
         font-size: 1em;
     }
     .copy-confirm {
@@ -238,4 +270,8 @@ body {
     .mobile-only-message .playstore-badge {
         max-width: 150px;
     }
+    .donation-text {
+        font-size: 1em; /* Reduce el tamaño del texto en móviles pequeños */
+    }
 }
+
