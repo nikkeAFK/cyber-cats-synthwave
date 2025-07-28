@@ -141,7 +141,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); /* Sombra neón */
-    margin-left: -300px;
+    margin-left: 50px;
 }
 
 .share-button:hover {
