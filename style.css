@@ -124,7 +124,7 @@ body {
 .share-section {
     width: 100%;
     text-align: center;
-    padding: 50%;
+    padding: 10%;
     margin-top: 20px; /* Espacio arriba */
     box-sizing: border-box;
 }
