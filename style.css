@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Usa vh para asegurar que ocupe toda la altura de la pantalla */
-    overflow: hidden; /* Evita barras de desplazamiento en el body principal */
+
 }
 
 /* Encabezado y Pie de Página */
