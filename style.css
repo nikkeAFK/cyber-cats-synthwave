@@ -65,10 +65,10 @@ body {
 #gameFrame {
     width: 100%;
     max-width: 1058px; /* Mueve el max-width aquí */
-    aspect-ratio: 1058 / 710; /* Esto calculará la altura automáticamente */
+    aspect-ratio: 1024 / 576; /* Esto calculará la altura automáticamente */
     border: 2px solid #00ffff;
     background-color: #000;
-    display: block; /* Opcional, pero buena práctica */
+    
     overflow: hidden;
 }
 
