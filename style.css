@@ -55,7 +55,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 100%; /* Ancho máximo para el juego */
+    max-width: 90%; /* Ancho máximo para el juego */
     width: 100%;
 }
 
