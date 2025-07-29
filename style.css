@@ -63,7 +63,7 @@ body {
 #gameFrame {
     width: 100%; /* Ocupa el 100% de su contenedor (.game-container-wrapper) */
     height:100%;
-    aspect-ratio:1064 / 657;; /* Mantiene la proporción correcta */
+    aspect-ratio:1064 / 724;; /* Mantiene la proporción correcta */
     border: 2px solid #00ffff;
     background-color: #000;
     display: block;
