@@ -58,7 +58,7 @@ body {
     max-width: 1058px; /* Ancho máximo para el juego */
     width: 100%;
     height: 100%;
-   
+   margin-top:-60px;
 }
 
 /* Iframe del Juego */
