@@ -64,7 +64,7 @@ body {
 /* Iframe del Juego */
 #gameFrame {
     width: 100%;
-    max-width: 1058px; /* Mueve el max-width aquí */
+    max-width: 1024px; /* Mueve el max-width aquí */
     aspect-ratio: 1024 / 576; /* Esto calculará la altura automáticamente */
     border: 2px solid #00ffff;
     background-color: #000;
