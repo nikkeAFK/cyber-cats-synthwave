@@ -55,23 +55,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 1058px; /* Ancho máximo para el juego */
     width: 100%;
-    height: 100%;
-   margin-top:-60px;
+    /* max-width: 1058px;  Define el ancho máximo del contenedor */
+    /* No es necesario definir height aquí, deja que el iframe lo determine */
 }
 
 /* Iframe del Juego */
 #gameFrame {
-    width: 100%; /* Ocupa el 100% de su contenedor (.game-container-wrapper) */
-    height:100%;
-    aspect-ratio:1058 / 710;; /* Mantiene la proporción correcta */
+    width: 100%;
+    max-width: 1058px; /* Mueve el max-width aquí */
+    aspect-ratio: 1058 / 710; /* Esto calculará la altura automáticamente */
     border: 2px solid #00ffff;
     background-color: #000;
-    display: block;
-    margin-left:10px;
-    margin-top:40px;
-   
+    display: block; /* Opcional, pero buena práctica */
 }
 
 /* Banners de Anuncios */
