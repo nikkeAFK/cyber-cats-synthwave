@@ -183,7 +183,7 @@ body {
 .donation-section form {
     display: inline-block; /* Para centrar el formulario si es necesario */
     margin: 0 auto;
-    margin-left:-125px;
+    margin-left:-175px;
 }
 
 /* Puedes añadir más estilos si quieres customizar el botón de PayPal si usas una imagen propia o un estilo diferente */
