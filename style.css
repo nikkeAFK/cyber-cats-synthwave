@@ -13,7 +13,7 @@ body {
     /* Configuración principal del layout */
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Usa vh para asegurar que ocupe toda la altura de la pantalla */
+    min-height: 100vh;
 }
 
 /* Encabezado y Pie de Página */
@@ -22,7 +22,7 @@ body {
     text-align: center;
     background-color: #1a0f2e;
     padding: 20px 0;
-    flex-shrink: 0; /* Evita que el header y footer se encojan */
+    flex-shrink: 0;
     box-sizing: border-box;
 }
 
@@ -39,18 +39,16 @@ body {
     border-top: 1px solid #440088;
 }
 
-/* Nuevo estilo para los enlaces legales en el footer */
-.legal-links a {
-    color: #00ffff; /* Color neón cian */
-    text-decoration: none; /* Quita el subrayado */
+/* Nuevo estilo para los enlaces legales y de atribución en el footer */
+.game-footer a {
+    color: #00ffff;
+    text-decoration: none;
     font-weight: bold;
-    text-transform: uppercase;
-    margin: 0 10px;
     transition: color 0.3s ease;
 }
 
-.legal-links a:hover {
-    color: #fff; /* Blanco al pasar el ratón */
+.game-footer a:hover {
+    color: #fff;
 }
 
 
@@ -59,9 +57,9 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center; /* Centra verticalmente en desktop */
-    flex-grow: 1; /* <-- CLAVE: Hace que esta sección crezca para ocupar el espacio sobrante */
-    padding: 20px; /* Añade un poco de aire alrededor */
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px;
     box-sizing: border-box;
 }
 
@@ -72,17 +70,15 @@ body {
     align-items: center;
     width: 100%;
     overflow: hidden;
-    /* max-width: 1058px;  Define el ancho máximo del contenedor */
-    /* No es necesario definir height aquí, deja que el iframe lo determine */
 }
 
 /* Iframe del Juego */
 #gameFrame {
     width: 100%;
-    max-width: 1038px; /* Mueve el max-width aquí */
+    max-width: 1038px;
     height: 100%;
     max-height: 629px;
-    aspect-ratio: 1024 / 576; /* Esto calculará la altura automáticamente */
+    aspect-ratio: 1024 / 576;
     border: 2px solid #00ffff;
     background-color: #000;
     
@@ -96,8 +92,8 @@ body {
     background-color: #000;
     border: 1px solid #6600ff;
     margin: 0 15px;
-    flex-shrink: 0; /* Evita que los anuncios se encojan */
-    display: flex; /* Asegura que los banners se muestren por defecto */
+    flex-shrink: 0;
+    display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
@@ -108,7 +104,7 @@ body {
 
 /* Mensaje para dispositivos móviles - OCULTO POR DEFECTO */
 .mobile-only-message {
-    display: none; /* Oculto por defecto en escritorio */
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -116,7 +112,7 @@ body {
     padding: 20px;
     max-width: 90%;
     margin: 20px auto;
-    background-color: #2a1f3e; /* Un tono un poco más claro que el fondo */
+    background-color: #2a1f3e;
     border: 2px solid #00ffff;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
@@ -134,7 +130,7 @@ body {
 }
 
 .mobile-only-message .playstore-badge {
-    max-width: 200px; /* Ajusta el tamaño de la insignia */
+    max-width: 200px;
     height: auto;
 }
 
@@ -143,14 +139,14 @@ body {
     width: 100%;
     text-align: center;
     padding: 20px;
-    margin-top: 20px; /* Espacio arriba */
+    margin-top: 20px;
     box-sizing: border-box;
 }
 
 .share-button {
-    background-color: #6600ff; /* Color neón morado */
+    background-color: #6600ff;
     color: #fff;
-    border: 2px solid #00ffff; /* Borde neón cian */
+    border: 2px solid #00ffff;
     padding: 12px 25px;
     font-size: 1.1em;
     font-weight: bold;
@@ -158,19 +154,19 @@ body {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); /* Sombra neón */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
     margin-left: 150px;
 }
 
 .share-button:hover {
-    background-color: #00ffff; /* Cambia a cian al pasar el ratón */
-    color: #1a0f2e; /* Texto oscuro */
+    background-color: #00ffff;
+    color: #1a0f2e;
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
 }
 
 .copy-confirm {
     margin-left: 15px;
-    color: #00ff00; /* Color de confirmación verde neón */
+    color: #00ff00;
     font-weight: bold;
     opacity: 0;
     visibility: hidden;
@@ -182,29 +178,27 @@ body {
     width: 100%;
     text-align: center;
     padding: 20px;
-    margin-top: 20px; /* Espacio arriba */
+    margin-top: 20px;
     box-sizing: border-box;
-    border-top: 1px solid #440088; /* Separador similar al footer */
-    background-color: #1a0f2e; /* Color de fondo similar al header/footer */
+    border-top: 1px solid #440088;
+    background-color: #1a0f2e;
 }
 
 .donation-text {
     font-size: 1.2em;
-    color: #00ffff; /* Color neón cian para el texto */
+    color: #00ffff;
     margin-bottom: 15px;
-    text-shadow: 0 0 8px #00ffff; /* Pequeña sombra neón */
+    text-shadow: 0 0 8px #00ffff;
 }
 
 .donation-section form {
-    display: inline-block; /* Para centrar el formulario si es necesario */
+    display: inline-block;
     margin: 0 auto;
     margin-left:-125px;
 }
 
-/* Puedes añadir más estilos si quieres customizar el botón de PayPal si usas una imagen propia o un estilo diferente */
-/* Por ejemplo, si el botón de PayPal es una imagen y quieres que tenga un borde neón: */
 .donation-section form input[type="image"] {
-    border: 2px solid #6600ff; /* Borde neón morado */
+    border: 2px solid #6600ff;
     border-radius: 5px;
     transition: box-shadow 0.3s ease;
     box-shadow: 0 0 10px rgba(102, 0, 255, 0.5);
@@ -216,62 +210,55 @@ body {
 
 /* ---- Media Queries para Responsividad ---- */
 
-/* Oculta los banners laterales en pantallas más pequeñas que 1400px */
 @media (max-width: 1400px) {
     .ad-banner {
         display: none;
     }
 }
 
-/* Para tablets y móviles (breakpoint 1024px) */
 @media (max-width: 1024px) {
     .game-layout {
-        flex-direction: column; /* Apila los elementos */
-        align-items: center; /* Centra los elementos apilados */
+        flex-direction: column;
+        align-items: center;
         padding: 15px;
     }
 
-    /* Oculta el juego de escritorio y muestra el mensaje móvil */
     .desktop-only {
-        display: none; /* Oculta el iframe del juego en móviles */
+        display: none;
     }
 
     .mobile-only-message {
-        display: flex; /* Muestra el mensaje móvil */
+        display: flex;
     }
 
     .game-container-wrapper {
-        margin: 0; /* Quita márgenes horizontales */
-        width: 100%; /* El juego ocupa todo el ancho disponible */
-        max-width: none; /* Elimina el límite de ancho para adaptarse */
+        margin: 0;
+        width: 100%;
+        max-width: none;
     }
 
-    /* El iframe del juego ya no se mostrará, así que estas reglas son menos críticas,
-       pero se mantienen para consistencia si se cambiara la lógica. */
     #gameFrame {
         width: 100%;
         height: auto;
         overflow: hidden;
     }
 
-    /* Ajustes para el botón de compartir en móvil */
     .share-section {
-        margin-top: 30px; /* Más espacio en móvil para separar del mensaje */
+        margin-top: 30px;
         padding: 10px;
     }
     .share-button {
         padding: 10px 20px;
-        margin-left: -10px; /* Ajusta el margen para centrar mejor en móviles */
+        margin-left: -10px;
         font-size: 1em;
     }
     .copy-confirm {
-        display: block; /* En móvil, el mensaje puede ir debajo */
+        display: block;
         margin-top: 10px;
         margin-left: 0;
     }
 }
 
-/* Ajustes finos para móviles pequeños */
 @media (max-width: 600px) {
     .game-header {
         padding: 10px 0;
@@ -291,7 +278,7 @@ body {
         max-width: 150px;
     }
     .donation-text {
-        font-size: 1em; /* Reduce el tamaño del texto en móviles pequeños */
+        font-size: 1em;
     }
 }
 
