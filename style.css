@@ -39,6 +39,21 @@ body {
     border-top: 1px solid #440088;
 }
 
+/* Nuevo estilo para los enlaces legales en el footer */
+.legal-links a {
+    color: #00ffff; /* Color neón cian */
+    text-decoration: none; /* Quita el subrayado */
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.legal-links a:hover {
+    color: #fff; /* Blanco al pasar el ratón */
+}
+
+
 /* Contenedor Principal (donde va el juego y los anuncios) */
 .game-layout {
     width: 100%;
