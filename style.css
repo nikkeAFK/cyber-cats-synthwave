@@ -9,8 +9,6 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
-    /* Configuración principal del layout */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -39,7 +37,6 @@ body {
     border-top: 1px solid #440088;
 }
 
-/* Nuevo estilo para los enlaces legales y de atribución en el footer */
 .game-footer a {
     color: #00ffff;
     text-decoration: none;
@@ -50,7 +47,6 @@ body {
 .game-footer a:hover {
     color: #fff;
 }
-
 
 /* Contenedor Principal (donde va el juego y los anuncios) */
 .game-layout {
@@ -81,16 +77,13 @@ body {
     aspect-ratio: 1024 / 576;
     border: 2px solid #00ffff;
     background-color: #000;
-    
     overflow: hidden;
 }
 
 /* Banners de Anuncios */
 .ad-banner {
-    width: 160px;
-    height: 600px;
-    background-color: #000;
-    border: 1px solid #6600ff;
+    background-color: transparent;
+    border: none;
     margin: 0 15px;
     flex-shrink: 0;
     display: flex;
@@ -100,6 +93,8 @@ body {
     font-size: 0.9em;
     text-align: center;
     box-sizing: border-box;
+    flex-basis: 160px;
+    min-height: 100px;
 }
 
 /* Mensaje para dispositivos móviles - OCULTO POR DEFECTO */
@@ -283,7 +278,7 @@ body {
 }
 
 .privacy-content-container {
-    background-color: #2a1f3e; /* Un fondo ligeramente más claro */
+    background-color: #2a1f3e;
     padding: 40px;
     max-width: 800px;
     margin: 40px auto;
