@@ -189,7 +189,7 @@ body {
 .donation-section form {
     display: inline-block;
     margin: 0 auto;
-    margin-left:-125px;
+    margin-left:300px;
 }
 
 .donation-section form input[type="image"] {
