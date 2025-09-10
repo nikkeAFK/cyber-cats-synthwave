@@ -150,7 +150,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-    margin-left: -40px;
+    margin-left: 110px;
 }
 
 .share-button:hover {
@@ -189,7 +189,7 @@ body {
 .donation-section form {
     display: inline-block;
     margin: 0 auto;
-    margin-left:300px;
+    margin-left:110px;
 }
 
 .donation-section form input[type="image"] {
