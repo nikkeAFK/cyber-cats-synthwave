@@ -19,39 +19,7 @@
     <meta name="author" content="JOSE ROBERTO NORIEGA HERNANDEZ">
     <link rel="stylesheet" href="style.css">
 </head>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const gameFrame = document.getElementById('gameFrame');
-        let gameBody;
-
-        // Espera a que el contenido del iframe se cargue
-        gameFrame.addEventListener('load', function() {
-            try {
-                // Accede al 'document' dentro del iframe
-                gameBody = gameFrame.contentWindow.document.body;
-
-                // Cuando el usuario hace clic dentro del cuerpo del iframe,
-                // solicita el bloqueo del puntero.
-                gameBody.addEventListener('click', function() {
-                    gameBody.requestPointerLock();
-                });
-            } catch (error) {
-                console.error("No se puede acceder al contenido del iframe. Asegúrate de que no haya restricciones de CORS. El bloqueo del puntero podría no funcionar.", error);
-            }
-        });
-
-        // Escucha los cambios del bloqueo del puntero para notificaciones
-        document.addEventListener('pointerlockchange', lockChangeAlert, false);
-
-        function lockChangeAlert() {
-            if (document.pointerLockElement === gameBody) {
-                console.log('El bloqueo del puntero se activó. El cursor está ahora capturado por el juego.');
-            } else {
-                console.log('El bloqueo del puntero se desactivó. El cursor se ha liberado.');
-            }
-        }
-    });
-</script>
+  
 <body>
     <header class="game-header">
         <h1 class="game-title-text">CYBERCATS-SYNTHWAVE</h1>
