@@ -397,3 +397,39 @@ padding-left: 20px;
 .privacy-content-container li {
 margin-bottom: 10px;
 }
+.content-section {
+    max-width: 900px; /* Limita el ancho para mejorar la legibilidad */
+    margin: 40px auto; /* Centra el contenedor y le da espacio vertical */
+    padding: 30px 40px; /* Espacio interno para que el texto no toque los bordes */
+    background-color: #2a1f3e; /* Un fondo ligeramente distinto para destacar */
+    border: 2px solid #6600ff; /* Borde de neón púrpura */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 20px rgba(102, 0, 255, 0.5); /* Sombra para efecto de brillo */
+}
+
+.content-section h2 {
+    color: #00ffff; /* Color cian neón para el título */
+    text-align: center; /* Centra el título */
+    font-size: 2.5em; /* Tamaño grande para el título */
+    text-transform: uppercase; /* Mayúsculas para un estilo más impactante */
+    margin-bottom: 30px; /* Espacio debajo del título */
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.7); /* Sombra de texto para el brillo */
+    letter-spacing: 2px; /* Espacio entre letras */
+}
+
+.content-section p {
+    font-size: 1.1em; /* Tamaño de fuente legible */
+    line-height: 1.7; /* Espacio entre líneas para facilitar la lectura */
+    color: #e0e0e0; /* Color de texto suave */
+    margin-bottom: 20px; /* Espacio entre párrafos */
+    text-align: justify; /* Justifica el texto para un aspecto de bloque limpio */
+}
+
+.content-section p:last-child {
+    margin-bottom: 0; /* Elimina el margen del último párrafo */
+}
+
+.content-section strong {
+    color: #00ffff; /* Resalta el texto en negrita con el color neón */
+    font-weight: bold;
+}
