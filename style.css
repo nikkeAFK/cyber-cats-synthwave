@@ -47,10 +47,10 @@ body {
     height: 100%;
     z-index: -1; /* Detrás de todo el contenido */
     background-image:
-        repeating-linear-gradient(0deg, var(--grid-color), var(--grid-color) 1px, transparent 1px, transparent var(--grid-size)),
-        repeating-linear-gradient(90deg, var(--grid-color), var(--grid-color) 1px, transparent 1px, transparent var(--grid-size));
+        repeating-linear-gradient(0deg, var(--grid-color), var(--grid-color) 3px, transparent 3px, transparent var(--grid-size)),
+        repeating-linear-gradient(90deg, var(--grid-color), var(--grid-color) 2px, transparent 2px, transparent var(--grid-size));
     background-size: var(--grid-size) var(--grid-size);
-    animation: grid-movement 60s linear infinite, grid-pulse 10s infinite alternate; /* Mueve y pulsa */
+    animation: grid-movement 60s linear infinite, grid-pulse 3s infinite alternate; /* Mueve y pulsa */
 }
 
 /* Animación de movimiento de la cuadrícula */
