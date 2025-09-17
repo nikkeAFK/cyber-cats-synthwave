@@ -133,119 +133,103 @@
     </script>
     
     <script type="module">
-        // Importar las funciones necesarias de Firebase v9
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-        import { getDatabase, ref, push, onChildAdded, query, limitToLast } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+    // Importar las funciones necesarias de Firebase v9
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getDatabase, ref, push, onChildAdded, query, limitToLast } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
-        // Tu configuración de Firebase que me pasaste
-        const firebaseConfig = {
-            apiKey: "AIzaSyB6n3PqALyzdUyAWzzpb1KE6jn_le9o4rI",
-            authDomain: "cybercat-syntwave-chat.firebaseapp.com",
-            databaseURL: "https://cybercat-syntwave-chat-default-rtdb.firebaseio.com",
-            projectId: "cybercat-syntwave-chat",
-            storageBucket: "cybercat-syntwave-chat.firebasestorage.app",
-            messagingSenderId: "657101693674",
-            appId: "1:657101693674:web:1e8850b81c4c4d22f5ad93"
-        };
+    // Tu configuración de Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyB6n3PqALyzdUyAWzzpb1KE6jn_le9o4rI",
+        authDomain: "cybercat-syntwave-chat.firebaseapp.com",
+        databaseURL: "https://cybercat-syntwave-chat-default-rtdb.firebaseio.com",
+        projectId: "cybercat-syntwave-chat",
+        storageBucket: "cybercat-syntwave-chat.firebasestorage.app",
+        messagingSenderId: "657101693674",
+        appId: "1:657101693674:web:1e8850b81c4c4d22f5ad93"
+    };
 
-        // Inicializar Firebase
-        const app = initializeApp(firebaseConfig);
-        const database = getDatabase(app);
+    // Inicializar Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
 
-        // Referencia a la base de datos (se guardarán en una "tabla" llamada messages)
-        const messagesDBRef = ref(database, 'messages');
-        // Creamos una consulta para obtener solo los últimos 50 mensajes
-        const messagesQuery = query(messagesDBRef, limitToLast(50));
+    const messagesDBRef = ref(database, 'messages');
+    const messagesQuery = query(messagesDBRef, limitToLast(50));
 
-        // Elementos del DOM (los campos del chat)
-        const messagesDiv = document.getElementById('messages');
-        const usernameInput = document.getElementById('username');
-        const messageInput = document.getElementById('messageInput');
-        const sendButton = document.getElementById('sendButton');
+    const messagesDiv = document.getElementById('messages');
+    const usernameInput = document.getElementById('username');
+    const messageInput = document.getElementById('messageInput');
+    const sendButton = document.getElementById('sendButton');
 
-        // Función para enviar mensajes
-        function sendMessage() {
-            const username = usernameInput.value.trim() || 'Anónimo';
-            const message = messageInput.value.trim();
+    // ▼▼▼ CAMBIO 1: Variable para controlar el enfriamiento ▼▼▼
+    let isCooldown = false;
 
-            if (message === '') return; // No enviar mensajes vacíos
-
-            // Usar push() para guardar el mensaje en la base de datos
-            push(messagesDBRef, {
-                username: username,
-                text: message,
-                timestamp: Date.now()
-            });
-
-            messageInput.value = ''; // Limpiar el campo de texto
+    // Función para enviar mensajes
+    function sendMessage() {
+        // ▼▼▼ CAMBIO 2: Comprobar si estamos en enfriamiento ▼▼▼
+        if (isCooldown) {
+            console.log("Espera antes de enviar otro mensaje.");
+            return; // Si está en cooldown, no hacemos nada
         }
 
-        // Eventos para enviar el mensaje
-        sendButton.addEventListener('click', sendMessage);
-        messageInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
+        const username = usernameInput.value.trim() || 'Anónimo';
+        const message = messageInput.value.trim();
+
+        if (message === '') return;
+
+        push(messagesDBRef, {
+            username: username,
+            text: message,
+            timestamp: Date.now()
         });
 
-        // Función para mostrar un mensaje nuevo en el chat
-        function displayMessage(snapshot) {
-            const msg = snapshot.val();
-            const messageElement = document.createElement('div');
-            messageElement.classList.add('message');
-            
-            const safeUsername = document.createTextNode(msg.username);
-            const safeText = document.createTextNode(msg.text);
-            
-            const usernameElement = document.createElement('strong');
-            usernameElement.appendChild(safeUsername);
-            
-            messageElement.appendChild(usernameElement);
-            messageElement.appendChild(document.createTextNode(': '));
-            messageElement.appendChild(safeText);
-            
-            messagesDiv.appendChild(messageElement);
-            messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll automático
+        messageInput.value = '';
+
+        // ▼▼▼ CAMBIO 3: Iniciar el enfriamiento ▼▼▼
+        isCooldown = true; // Activamos el cooldown
+        sendButton.disabled = true; // Desactivamos el botón visualmente
+        sendButton.style.opacity = '0.5'; // Lo hacemos ver deshabilitado
+        
+        setTimeout(() => {
+            isCooldown = false; // Desactivamos el cooldown después de 3 segundos
+            sendButton.disabled = false; // Reactivamos el botón
+            sendButton.style.opacity = '1'; // Le devolvemos su apariencia normal
+        }, 3000); // 3000 milisegundos = 3 segundos
+    }
+
+    // Eventos para enviar el mensaje
+    sendButton.addEventListener('click', sendMessage);
+    messageInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendMessage();
         }
+    });
 
-        // Escuchar por nuevos mensajes y mostrarlos con la función
-        onChildAdded(messagesQuery, displayMessage);
+    // Función para mostrar un mensaje nuevo en el chat
+    function displayMessage(snapshot) {
+        const msg = snapshot.val();
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message');
+        
+        const safeUsername = document.createTextNode(msg.username);
+        const safeText = document.createTextNode(msg.text);
+        
+        const usernameElement = document.createElement('strong');
+        usernameElement.appendChild(safeUsername);
+        
+        messageElement.appendChild(usernameElement);
+        messageElement.appendChild(document.createTextNode(': '));
+        messageElement.appendChild(safeText);
+        
+        messagesDiv.appendChild(messageElement);
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
 
-    </script>
-    
-    <script>
-        function scaleGame() {
-            const gameWrapper = document.querySelector('.game-container-wrapper');
-            const gameFrame = document.getElementById('gameFrame');
-            
-            if (!gameWrapper || !gameFrame) return;
+    // Escuchar por nuevos mensajes y mostrarlos con la función
+    onChildAdded(messagesQuery, displayMessage);
 
-            const nativeWidth = 1024;
-            const nativeHeight = 576;
-
-            // Medimos el ancho del contenedor
-            const containerWidth = gameWrapper.offsetWidth;
-
-            // Calculamos el factor de escala
-            const scale = containerWidth / nativeWidth;
-
-            // Aplicamos la transformación CSS para escalar el iframe
-            gameFrame.style.transform = `scale(${scale})`;
-
-            // Ajustamos la altura del contenedor para que no quede espacio vacío
-            gameWrapper.style.height = `${nativeHeight * scale}px`;
-        }
-
-        // Escalar el juego cuando la página carga
-        window.addEventListener('load', scaleGame);
-        // Volver a escalar si el usuario cambia el tamaño de la ventana
-        window.addEventListener('resize', scaleGame);
-    </script>
+</script>
 
 </body>
-</html>
-
-
 </html>
 
 
