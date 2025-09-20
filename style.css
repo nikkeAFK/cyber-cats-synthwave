@@ -379,6 +379,9 @@ body > * {
     height: 576px;
     display: flex;
 }
+.game-container-wrapper, .chat-column {
+  align-self: flex-start;
+}
 
 #chat-container {
     width: 100%;
