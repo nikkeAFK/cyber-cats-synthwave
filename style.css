@@ -33,7 +33,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow-x: hidden; /* Evita el desbordamiento horizontal */
+    overflow-x: auto; /* Evita el desbordamiento horizontal */
     position: relative; /* <-- CAMBIO 1: Necesario para posicionar el anuncio */
     z-index: 1; /* Asegura que el contenido esté por encima de la cuadrícula */
 }
