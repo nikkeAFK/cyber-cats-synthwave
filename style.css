@@ -171,10 +171,13 @@ body > * {
 }
 /* --- FIN DE ESTILOS CORREGIDOS --- */
 
+/* CÓDIGO CORREGIDO */
 .ad-banner {
-    flex-basis: 250px;
-    flex-shrink: 0; /* Evita que se encoja */
-    margin: 0 20px;
+  flex-basis: 300px; 
+  flex-shrink: 0; 
+  margin: 0 20px;
+  height: 600px;      /* <-- AÑADE ESTA LÍNEA (Define una altura fija) */
+  overflow: hidden;   /* <-- AÑADE ESTA LÍNEA (Recorta lo que se salga) */
 }
 
 /* --- Contenedor de Historia y Donación --- */
