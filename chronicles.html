@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6XPFHBMMH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-Y6XPFHBMMH');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glorious Chronicles | CYBERCAT</title>
+    <meta name="description" content="El salón de la fama de CYBERCAT-SYNTHWAVE. Lee las historias de los mejores jugadores que han dominado el top global.">
+    <meta name="keywords" content="top players, hall of fame, gaming legends, high scores, synthwave, cybercat">
+    <meta name="author" content="JOSE ROBERTO NORIEGA HERNANDEZ">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-grid"></div>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#donacion">Donación</a></li>
+            <li><a href="chronicles.html" style="color: var(--neon-pink);">Glorious Chronicles</a></li>
+        </ul>
+    </nav>
+
+    <header class="game-header"></header>
+
+    <main class="content-section" style="padding-top: 100px;">
+        <h2 class="neon-text-pink">Glorious Chronicles</h2>
+        <p style="text-align: center; font-size: 1.2em;">El salón de la fama para las leyendas de CYBERCAT. Aquí se inmortalizan las hazañas de aquellos que han alcanzado la cima.</p>
+        
+        <hr style="border-color: var(--neon-purple); margin: 40px 0;">
+
+        <div id="chronicles-content">
+            <p>Cargando crónicas...</p>
+        </div>
+    </main>
+
+    <footer class="game-footer">
+        <p>&copy; 2025 CYBERCAT-SYNTHWAVE. All rights reserved.</p>
+        <p class="legal-links">
+            <a href="politica-de-privacidad.html">Privacy Policy</a>
+        </p>
+        </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contentDiv = document.getElementById('chronicles-content');
+
+            // Usamos fetch para leer tu futuro archivo 'historias.md'
+            fetch('historias.md')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('No se pudo encontrar el archivo de crónicas.');
+                    }
+                    return response.text();
+                })
+                .then(markdownText => {
+                    // Usamos la librería marked para convertir el texto a HTML
+                    contentDiv.innerHTML = marked.parse(markdownText);
+                })
+                .catch(error => {
+                    console.error('Error al cargar las crónicas:', error);
+                    contentDiv.innerHTML = '<p style="color: red;">No se pudieron cargar las crónicas. Asegúrate de que el archivo "historias.md" exista.</p>';
+                });
+        });
+    </script>
+</body>
+</html>
+
+
