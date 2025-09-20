@@ -1,103 +1,68 @@
 /*
-================================================================
-ESTILOS ÉPICOS PARA GLORIOUS CHRONICLES (TEMA ORO Y LEYENDA)
-================================================================
+====================================
+CUSTOM STYLES FOR GLORIOUS CHRONICLES
+====================================
 */
 
-/* --- Estilo para el enlace activo en el menú de navegación --- */
-.active-link {
-    color: #FFD700 !important; /* Dorado */
-    text-shadow: 0 0 8px #FFD700;
-}
-
-/* --- Título Principal de la Página --- */
+/* --- New Title Style --- */
 .chronicles-title {
-    font-family: 'Cinzel', serif; /* Nueva fuente épica */
-    font-weight: 700;
-    font-size: 3.8em;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: #FFD700; /* Dorado */
-    -webkit-text-stroke: 0; /* Quitamos el borde de neón */
-    /* Sombra de texto dorada más elaborada */
+    /* Use the new font we imported */
+    font-family: 'Vollkorn', serif;
+    
+    /* New color scheme: Gold/Yellow Neon */
+    color: #FFD700; /* Gold color */
+    
+    /* A more subtle text shadow for an elegant glow */
     text-shadow: 
-        0 0 4px #FFF, /* Un brillo blanco interior */
+        0 0 5px #FFD700,
         0 0 10px #FFD700,
-        0 0 20px #FFD700,
-        0 0 40px #FF8C00; /* Naranja oscuro para profundidad */
+        0 0 20px #FF8C00, /* Dark Orange for depth */
+        0 0 35px #FF8C00;
+        
+    /* We remove the text stroke for a softer look */
+    -webkit-text-stroke: 0;
+    
+    font-style: italic;
+    font-weight: 700; /* A bold weight for the serif font */
+    font-size: 3.5em; /* A bit larger */
 }
 
-/* --- Subtítulo de la Página --- */
+/* --- New Subtitle Style --- */
 .chronicles-subtitle {
-    font-family: 'Lora', serif; /* Nueva fuente para texto */
+    font-family: 'Vollkorn', serif;
     font-style: italic;
     font-size: 1.3em;
-    color: #EAEAEA; /* Un blanco más suave */
+    color: var(--text-light);
     opacity: 0.9;
     text-align: center;
-    max-width: 600px;
-    margin: 0 auto; /* Centrar el subtítulo */
-}
-
-/* --- Separador Horizontal --- */
-.chronicles-separator {
-    border: 0;
-    height: 2px;
-    margin: 50px auto;
-    width: 80%;
-    background-image: linear-gradient(to right, rgba(205, 127, 50, 0), rgba(205, 127, 50, 0.75), rgba(205, 127, 50, 0)); /* Degradado de bronce */
 }
 
 
-/*
-=========================================================
-ESTILOS PARA EL CONTENIDO GENERADO DESDE 'historias.md'
-=========================================================
-*/
+/* --- Styles for the content that comes from Markdown --- */
 
-/* --- Títulos de los Jugadores (H2) --- */
+/* Styles for the player names (h2 in Markdown) */
 #chronicles-content h2 {
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #FFF8DC; /* Blanco antiguo (Cornsilk) */
+    font-family: 'Vollkorn', serif;
+    color: var(--neon-cyan);
     text-align: center;
     font-size: 2.5em;
-    text-shadow: 0 0 10px #CD7F32; /* Sombra color bronce */
+    font-style: italic;
+    text-shadow: 0 0 8px var(--neon-cyan);
 }
 
-/* --- Imágenes de los Jugadores --- */
+/* Styles for the player images */
 #chronicles-content img {
     display: block;
-    margin: 25px auto;
-    max-width: 90%;
-    max-height: 400px; /* Evita que las imágenes sean demasiado altas */
-    border: 4px solid #CD7F32; /* Borde color bronce */
+    margin: 20px auto;
+    max-width: 80%;
+    border: 3px solid var(--neon-purple);
     border-radius: 5px;
-    box-shadow: 0 0 20px rgba(205, 127, 50, 0.6); /* Sombra de bronce */
+    box-shadow: 0 0 15px var(--neon-purple);
 }
 
-/* --- Párrafos de las Historias (P) --- */
+/* Styles for the player stories (p in Markdown) */
 #chronicles-content p {
-    font-family: 'Lora', serif; /* Fuente elegante y legible */
-    font-size: 1.15em;
-    line-height: 1.9;
+    font-size: 1.1em;
+    line-height: 1.8;
     text-align: justify;
-    color: #CCCCCC; /* Un gris claro para no cansar la vista */
-}
-
-/* --- Texto en Negrita (Score, Fecha, etc.) --- */
-#chronicles-content strong {
-    color: #FFF8DC; /* Resaltado en blanco antiguo */
-    font-weight: 700;
-}
-
-/* --- Separadores entre Historias (HR) --- */
-#chronicles-content hr {
-    border: 0;
-    height: 1px;
-    margin: 60px auto;
-    width: 60%;
-    background-image: linear-gradient(to right, rgba(205, 127, 50, 0), rgba(205, 127, 50, 0.4), rgba(205, 127, 50, 0));
 }
