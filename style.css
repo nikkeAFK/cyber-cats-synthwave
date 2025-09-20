@@ -3,12 +3,12 @@
 
 /* --- Variables de Color para fácil edición --- */
 :root {
-    --bg-dark: #0d0221;        /* Azul noche muy oscuro */
-    --bg-medium: #2a1f3e;      /* Púrpura oscuro para contenedores */
-    --neon-pink: #ff00ff;      /* Magenta neón */
-    --neon-cyan: #00ffff;      /* Cian neón */
-    --neon-purple: #9f00ff;    /* Púrpura neón */
-    --text-light: #e0e0e0;     /* Color de texto principal */
+    --bg-dark: #0d0221;         /* Azul noche muy oscuro */
+    --bg-medium: #2a1f3e;       /* Púrpura oscuro para contenedores */
+    --neon-pink: #ff00ff;       /* Magenta neón */
+    --neon-cyan: #00ffff;       /* Cian neón */
+    --neon-purple: #9f00ff;     /* Púrpura neón */
+    --text-light: #e0e0e0;       /* Color de texto principal */
     --font-title: 'Bungee', cursive;
     --font-body: 'Roboto Mono', monospace;
 
@@ -34,7 +34,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     overflow-x: hidden; /* Evita el desbordamiento horizontal */
-    position: relative; /* Necesario para posicionar la cuadrícula */
+    position: relative; /* <-- CAMBIO 1: Necesario para posicionar el anuncio */
     z-index: 1; /* Asegura que el contenido esté por encima de la cuadrícula */
 }
 
@@ -144,11 +144,12 @@ body > * {
 .game-layout {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* <-- CAMBIO 3a: Alineamos a la izquierda del espacio disponible */
     align-items: flex-start;
     flex-grow: 1;
     padding: 100px 20px 40px 20px;
     box-sizing: border-box;
+    padding-left: 360px; /* <-- CAMBIO 3b: Creamos el hueco para el anuncio */
 }
 
 /* --- ESTILOS CORREGIDOS PARA EL JUEGO --- */
@@ -171,11 +172,13 @@ body > * {
 }
 /* --- FIN DE ESTILOS CORREGIDOS --- */
 
-/* CÓDIGO CORREGIDO */
+/* --- CAMBIO 2: REGLAS PARA EL ANUNCIO POSICIONADO --- */
 .ad-banner {
-  flex-basis: 300px;
-  flex-shrink: 0;
-  margin: 0 20px;
+    position: absolute;   /* La sacamos del flujo normal */
+    top: 100px;           /* La bajamos 100px para que no choque con el menú */
+    left: 20px;           /* La separamos 20px del borde izquierdo */
+    width: 300px;         /* Le damos un ancho fijo */
+    height: auto;         /* Dejamos que la altura sea automática */
 }
 
 /* --- Contenedor de Historia y Donación --- */
@@ -378,9 +381,6 @@ body > * {
     margin: 0 20px;
     height: 576px;
     display: flex;
-}
-.game-container-wrapper, .chat-column {
-  align-self: flex-start;
 }
 
 #chat-container {
