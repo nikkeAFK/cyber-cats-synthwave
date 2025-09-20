@@ -176,7 +176,7 @@ body > * {
   flex-basis: 300px; 
   flex-shrink: 0; 
   margin: 0 20px;
-  height: 600px;      /* <-- AÑADE ESTA LÍNEA (Define una altura fija) */
+  height: 250px;      /* <-- AÑADE ESTA LÍNEA (Define una altura fija) */
   overflow: hidden;   /* <-- AÑADE ESTA LÍNEA (Recorta lo que se salga) */
 }
 
