@@ -172,7 +172,7 @@ body > * {
 /* --- FIN DE ESTILOS CORREGIDOS --- */
 
 .ad-banner {
-    flex-basis: 350px;
+    flex-basis: 250px;
     flex-shrink: 0; /* Evita que se encoja */
     margin: 0 20px;
 }
