@@ -1,4 +1,5 @@
-CODEX ENTRY 001: The Pioneer and the Awakening of Osiris
+CODEX ENTRY 001: The Pioneer and the Awakening of Osiris.
+
 The silence in the Core was absolute. The trap, dormant. The symphony, in a deadly calm. Thousands of attempts had ended before disturbing the stillness.
 
 Until now.
