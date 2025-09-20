@@ -173,11 +173,9 @@ body > * {
 
 /* CÓDIGO CORREGIDO */
 .ad-banner {
-  flex-basis: 300px; 
-  flex-shrink: 0; 
+  flex-basis: 300px;
+  flex-shrink: 0;
   margin: 0 20px;
-  height: 800px;      /* <-- AÑADE ESTA LÍNEA (Define una altura fija) */
-  overflow: hidden;   /* <-- AÑADE ESTA LÍNEA (Recorta lo que se salga) */
 }
 
 /* --- Contenedor de Historia y Donación --- */
