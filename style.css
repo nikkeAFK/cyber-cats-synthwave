@@ -383,7 +383,7 @@ body > * {
     display: flex;
 }
 .game-container-wrapper, .chat-column {
-  margin-right: 100px;
+  margin-right: -120px;
 }
 #chat-container {
     width: 100%;
