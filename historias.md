@@ -19,8 +19,8 @@ Their name is engraved. Not as a conqueror, but as something more important.
 DEIMON, the Pioneer. The one who woke the beast.
 
 Honor their courage. The chronicle has begun.
-============================================================================================================================================================================
-============================================================================================================================================================================
+
+----------------------------------------------------------------------------------------------------------
 SECONDS CODEX ENTRY 002: The Prodigy and The Gaze into the Abyss
 
 After Osiris's awakening, there came silence. A silence filled with broken attempts and the echo of failure in the hearts of the brave. The 25-cycle barrier, established by the pioneer DEIMON, seemed an insurmountable wall, a testament to the brutality of the Core. Blood was spilled again and again against that invisible frontier.
