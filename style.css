@@ -3,12 +3,12 @@
 
 /* --- Variables de Color para fácil edición --- */
 :root {
-    --bg-dark: #0d0221;       /* Azul noche muy oscuro */
-    --bg-medium: #2a1f3e;     /* Púrpura oscuro para contenedores */
-    --neon-pink: #ff00ff;     /* Magenta neón */
-    --neon-cyan: #00ffff;     /* Cian neón */
-    --neon-purple: #9f00ff;   /* Púrpura neón */
-    --text-light: #e0e0e0;    /* Color de texto principal */
+    --bg-dark: #0d0221;         /* Azul noche muy oscuro */
+    --bg-medium: #2a1f3e;       /* Púrpura oscuro para contenedores */
+    --neon-pink: #ff00ff;       /* Magenta neón */
+    --neon-cyan: #00ffff;       /* Cian neón */
+    --neon-purple: #9f00ff;     /* Púrpura neón */
+    --text-light: #e0e0e0;       /* Color de texto principal */
     --font-title: 'Bungee', cursive;
     --font-body: 'Roboto Mono', monospace;
 
@@ -33,8 +33,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow-x: hidden; /* Evita el desbordamiento horizontal */
-    position: relative; /* Necesario para posicionar la cuadrícula */
+    overflow-x: auto; /* Evita el desbordamiento horizontal */
+    position: relative; /* <-- CAMBIO 1: Necesario para posicionar el anuncio */
     z-index: 1; /* Asegura que el contenido esté por encima de la cuadrícula */
 }
 
@@ -144,27 +144,41 @@ body > * {
 .game-layout {
     width: 100%;
     display: flex;
-    justify-content: center; /* Centrado por defecto */
-    align-items: center;
+    justify-content: flex-start; /* <-- CAMBIO 3a: Alineamos a la izquierda del espacio disponible */
+    align-items: flex-start;
     flex-grow: 1;
-    padding: 100px 20px 40px 20px; /* Aumentado padding superior para el nav fijo */
+    padding: 100px 20px 40px 20px;
     box-sizing: border-box;
+    padding-left: 360px; /* <-- CAMBIO 3b: Creamos el hueco para el anuncio */
+}
+
+/* --- ESTILOS CORREGIDOS PARA EL JUEGO --- */
+.game-container-wrapper {
+    /* Este contenedor se encarga del tamaño flexible */
+    width: 100%;
+    max-width: 1024px; /* El tamaño máximo del juego */
+    position: relative;
+    /* Su altura será definida por el script de escalado */
 }
 
 #gameFrame {
-    max-width: 1024px;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background-color: #000;
+    /* El iframe ahora tiene tamaño fijo y lo escalamos con JS */
     border: 3px solid var(--neon-cyan);
     box-shadow: 0 0 15px var(--neon-cyan), 0 0 30px var(--neon-cyan) inset;
     animation: pulse-glow-cyan 4s infinite ease-in-out;
+    
+    /* Clave para el escalado: le decimos que se transforme desde la esquina */
+    transform-origin: top left;
 }
+/* --- FIN DE ESTILOS CORREGIDOS --- */
 
+/* --- CAMBIO 2: REGLAS PARA EL ANUNCIO POSICIONADO --- */
 .ad-banner {
-    flex-basis: 160px;
-    margin: 0 20px;
-    min-height: 600px;
+    position: absolute;   /* La sacamos del flujo normal */
+    top: 100px;           /* La bajamos 100px para que no choque con el menú */
+    left: 20px;           /* La separamos 20px del borde izquierdo */
+    width: 300px;         /* Le damos un ancho fijo */
+    height: auto;         /* Dejamos que la altura sea automática */
 }
 
 /* --- Contenedor de Historia y Donación --- */
@@ -198,8 +212,8 @@ body > * {
 }
 
 .content-section strong {
-    color: var(--neon-pink);
-    font-weight: 700;
+    color: #00ffff; /* Resalta el texto en negrita con el color neón */
+    font-weight: bold;
 }
 
 /* --- Sección de Donación Específica --- */
@@ -316,9 +330,9 @@ body > * {
 
 /* ---- Media Queries para Responsividad ---- */
 
-/* Ocultar anuncios en pantallas medianas */
+/* Ocultar anuncios Y CHAT en pantallas medianas */
 @media (max-width: 1400px) {
-    .ad-banner {
+    .ad-banner, .chat-column {
         display: none;
     }
 }
@@ -360,7 +374,124 @@ body > * {
     }
 }
 
-.content-section strong {
-    color: #00ffff; /* Resalta el texto en negrita con el color neón */
+/* --- Estilos del Chat de Firebase --- */
+.chat-column {
+    flex-basis: 300px;
+    flex-shrink: 0; /* Evita que se encoja */
+    margin: 0 20px;
+    height: 576px;
+    display: flex;
+}
+
+#chat-container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-medium);
+    border: 2px solid var(--neon-purple);
+    box-shadow: 0 0 10px var(--neon-purple), 0 0 15px var(--neon-purple) inset;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    font-family: var(--font-body);
+    color: var(--text-light);
+}
+
+.chat-header {
+    font-family: var(--font-title);
+    text-align: center;
+    font-size: 1.2em;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+/* ESTILOS PARA EL MENSAJE DE ADVERTENCIA */
+.chat-rules {
+    padding: 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--neon-purple);
+    border-top: 1px solid var(--neon-purple);
+}
+
+.chat-rules p {
+    font-size: 0.75em;
+    text-align: center;
+    color: var(--text-light);
+    opacity: 0.8;
+    margin: 0;
+    padding: 5px 0;
+    line-height: 1.4;
+}
+
+#messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    word-wrap: break-word;
+    font-size: 0.9em;
+    min-height: 0;
+}
+
+/* Estilo de la barra de scroll */
+#messages::-webkit-scrollbar {
+    width: 8px;
+}
+#messages::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+#messages::-webkit-scrollbar-thumb {
+    background-color: var(--neon-purple);
+    border-radius: 4px;
+}
+
+.message {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.message strong {
+    color: var(--neon-cyan); /* Nickname en cian */
+}
+
+#chat-inputs {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    border-top: 1px solid var(--neon-purple);
+    padding-top: 10px;
+}
+
+#chat-inputs input {
+    background-color: var(--bg-dark);
+    border: 1px solid var(--neon-cyan);
+    color: var(--text-light);
+    padding: 8px;
+    border-radius: 4px;
+    font-family: var(--font-body);
+}
+
+#username {
+    width: 80px;
+}
+
+#messageInput {
+    flex-grow: 1;
+}
+
+#sendButton {
+    background-color: transparent;
+    border: 2px solid var(--neon-pink);
+    color: var(--neon-pink);
+    font-family: var(--font-title);
     font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 0 15px;
+    transition: all 0.3s ease;
+}
+
+#sendButton:hover {
+    background-color: var(--neon-pink);
+    color: var(--bg-dark);
+    box-shadow: 0 0 10px var(--neon-pink);
 }

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6XPFHBMMH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-Y6XPFHBMMH');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glorious Chronicles | CYBERCAT</title>
+    <meta name="description" content="The hall of fame for CYBERCAT-SYNTHWAVE. Read the stories of the top players who have dominated the global leaderboard.">
+    <meta name="keywords" content="top players, hall of fame, gaming legends, high scores, synthwave, cybercat">
+    <meta name="author" content="JOSE ROBERTO NORIEGA HERNANDEZ">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="chronicles.css">
+
+</head>
+
+<body>
+    <div class="background-grid"></div>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#donacion">Donation</a></li>
+            <li><a href="chronicles.html" style="color: var(--neon-pink);">Glorious Chronicles</a></li>
+        </ul>
+    </nav>
+
+    <header class="game-header"></header>
+
+    <main class="content-section" style="padding-top: 100px;">
+        <h2 class="chronicles-title">Glorious Chronicles</h2>
+        <p class="chronicles-subtitle">The hall of fame for the legends of CYBERCAT. Here, the deeds of those who have reached the top are immortalized.</p>
+        
+        <hr class="chronicles-separator">
+
+        <div id="chronicles-content">
+            <p>Loading chronicles...</p>
+        </div>
+    </main>
+
+    <footer class="game-footer">
+        <p>&copy; 2025 CYBERCAT-SYNTHWAVE. All rights reserved.</p>
+        <p class="legal-links">
+            <a href="politica-de-privacidad.html">Privacy Policy</a>
+        </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contentDiv = document.getElementById('chronicles-content');
+
+            fetch('historias.md')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Could not find the chronicles file.');
+                    }
+                    return response.text();
+                })
+                .then(markdownText => {
+                    contentDiv.innerHTML = marked.parse(markdownText);
+                })
+                .catch(error => {
+                    console.error('Error loading the chronicles:', error);
+                    contentDiv.innerHTML = '<p style="color: red;">Could not load chronicles. Make sure the "historias.md" file exists.</p>';
+                });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
