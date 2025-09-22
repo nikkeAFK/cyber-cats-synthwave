@@ -177,7 +177,7 @@ body > * {
     position: absolute;   /* La sacamos del flujo normal */
     top: 100px;           /* La bajamos 100px para que no choque con el menú */
     left: 20px;           /* La separamos 20px del borde izquierdo */
-    width: 200px;         /* Le damos un ancho fijo */
+    width: 350px;         /* Le damos un ancho fijo */
     height: auto;         /* Dejamos que la altura sea automática */
 }
 
