@@ -178,7 +178,7 @@ body > * {
     top: 100px;           /* La bajamos 100px para que no choque con el menú */
     left: 20px;           /* La separamos 20px del borde izquierdo */
     width: 350px;         /* Le damos un ancho fijo */
-    height: auto;         /* Dejamos que la altura sea automática */
+    height: 150px;         /* Dejamos que la altura sea automática */
 }
 
 /* --- Contenedor de Historia y Donación --- */
