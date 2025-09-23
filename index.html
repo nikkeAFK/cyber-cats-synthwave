@@ -21,7 +21,7 @@
     <div class="background-grid"></div>
     <nav class="main-nav">
         <ul>
-           <li><a href="#home">Play</a></li>
+            <li><a href="#home">Play</a></li>
             <li><a href="#donacion">Give a tip</a></li>
             <li><a href="chronicles.html" style="color: var(--neon-pink);">Glorious Chronicles</a></li>
         </ul>
@@ -31,7 +31,7 @@
 
     <main id="home" class="game-layout">
         <aside class="ad-banner ad-left">
-       <script async="async" data-cfasync="false" src="//pl27682034.revenuecpmgate.com/c10514074ff0e5a5ae0d02570d90bdaf/invoke.js"></script>
+           <script async="async" data-cfasync="false" src="//pl27682034.revenuecpmgate.com/c10514074ff0e5a5ae0d02570d90bdaf/invoke.js"></script>
 <div id="container-c10514074ff0e5a5ae0d02570d90bdaf"></div>
 			<script async="async" data-cfasync="false" src="//snackteepatron.com/c10514074ff0e5a5ae0d02570d90bdaf/invoke.js"></script>
 <div id="container-c10514074ff0e5a5ae0d02570d90bdaf"></div>
@@ -76,10 +76,8 @@
 	};
 </script>
 <script type="text/javascript" src="//snackteepatron.com/6048b63a31e899d1ceb703835db182cc/invoke.js"></script>
-			
         </aside>
-       
-
+        
         <div class="game-container-wrapper desktop-only">
             <iframe id="gameFrame" src="CYBERCATS-ST2/index.html" frameborder="0" allowfullscreen width="1024" height="576"></iframe>
         </div>
@@ -272,6 +270,28 @@
     onChildAdded(messagesQuery, displayMessage);
 </script>
 
+<script type="text/javascript">
+(function() {
+    // 1. Define el nombre de la "marca" que dejaremos en el navegador.
+    const flagKey = 'popupExecuted';
+
+    // 2. Revisa si la marca NO existe en el almacenamiento del navegador.
+    if (!localStorage.getItem(flagKey)) {
+        
+        // 3. Si no existe, es la primera visita. Cargamos el script.
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        // ¡IMPORTANTE! Asegúrate de que esta es la URL del script que quieres controlar.
+        script.src = '//snackteepatron.com/13/9c/5a/139c5ada24f43e85853fc0cbf7aec288.js';
+        
+        // 4. Añade el script a tu página para que se ejecute.
+        document.head.appendChild(script);
+
+        // 5. Pone la marca en el navegador para que no se vuelva a ejecutar.
+        localStorage.setItem(flagKey, 'true');
+    }
+})();
+</script>
 </body>
 </html>
 </html>
