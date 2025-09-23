@@ -19,8 +19,7 @@
 
 <body>
     <!-- 
-        NUEVO: Elemento de audio para la intro.
-        Recuerda reemplazar 'intro_audio.mp3' con la ruta a tu archivo de audio.
+        Elemento de audio para la intro.
     -->
     <audio id="audio-intro" preload="auto">
         <source src="noora.mp3" type="audio/mpeg">
@@ -240,15 +239,12 @@
         const messageInput = document.getElementById('messageInput');
         const sendButton = document.getElementById('sendButton');
 
-        // ▼▼▼ CAMBIO 1: Variable para controlar el enfriamiento ▼▼▼
         let isCooldown = false;
 
-        // Función para enviar mensajes
         function sendMessage() {
-            // ▼▼▼ CAMBIO 2: Comprobar si estamos en enfriamiento ▼▼▼
             if (isCooldown) {
                 console.log("Espera antes de enviar otro mensaje.");
-                return; // Si está en cooldown, no hacemos nada
+                return;
             }
 
             const username = usernameInput.value.trim() || 'Anónimo';
@@ -264,19 +260,17 @@
 
             messageInput.value = '';
 
-            // ▼▼▼ CAMBIO 3: Iniciar el enfriamiento ▼▼▼
-            isCooldown = true; // Activamos el cooldown
-            sendButton.disabled = true; // Desactivamos el botón visualmente
-            sendButton.style.opacity = '0.5'; // Lo hacemos ver deshabilitado
+            isCooldown = true;
+            sendButton.disabled = true;
+            sendButton.style.opacity = '0.5';
             
             setTimeout(() => {
-                isCooldown = false; // Desactivamos el cooldown después de 3 segundos
-                sendButton.disabled = false; // Reactivamos el botón
-                sendButton.style.opacity = '1'; // Le devolvemos su apariencia normal
-            }, 3000); // 3000 milisegundos = 3 segundos
+                isCooldown = false;
+                sendButton.disabled = false;
+                sendButton.style.opacity = '1';
+            }, 3000);
         }
 
-        // Eventos para enviar el mensaje
         sendButton.addEventListener('click', sendMessage);
         messageInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
@@ -284,7 +278,6 @@
             }
         });
 
-        // Función para mostrar un mensaje nuevo en el chat
         function displayMessage(snapshot) {
             const msg = snapshot.val();
             const messageElement = document.createElement('div');
@@ -304,24 +297,27 @@
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
         }
 
-        // Escuchar por nuevos mensajes y mostrarlos con la función
         onChildAdded(messagesQuery, displayMessage);
 
-        // NUEVO: Script para reproducir el audio al cargar la página.
-        document.addEventListener('DOMContentLoaded', (event) => {
+        // NUEVO: Implementación de la lógica para el audio.
+        document.addEventListener('DOMContentLoaded', () => {
             const audioIntro = document.getElementById('audio-intro');
-            // La función play() podría ser bloqueada por el navegador.
-            // Para evitarlo, a veces es necesario una interacción del usuario.
-            // Si el audio no se reproduce, podrías añadir un botón de "Iniciar Juego"
-            // que llame a `audioIntro.play()`.
+
+            // Intenta reproducir el audio automáticamente.
+            // Esto fallará en navegadores que lo bloquean, pero funcionará en otros.
             audioIntro.play().catch(error => {
-                console.error("La reproducción de audio automática fue bloqueada:", error);
+                // Si la reproducción automática es bloqueada, escuchamos el primer clic del usuario
+                // en cualquier parte de la página para iniciar el audio.
+                // Usamos { once: true } para que el listener se elimine a sí mismo después del primer clic.
+                document.addEventListener('click', () => {
+                    audioIntro.play().catch(clickError => {
+                        console.error("Error al reproducir el audio después del clic del usuario:", clickError);
+                    });
+                }, { once: true });
             });
         });
-
     </script>
 </body>
-</html>
 </html>
 
 
