@@ -302,22 +302,47 @@
         // NUEVO: Implementación de la lógica para el audio.
         document.addEventListener('DOMContentLoaded', () => {
             const audioIntro = document.getElementById('audio-intro');
+            const gameFrame = document.getElementById('gameFrame');
+            let audioStarted = false;
+
+            const startAudio = () => {
+                if (audioStarted) return;
+                audioIntro.play()
+                    .then(() => {
+                        audioStarted = true;
+                    })
+                    .catch(e => {
+                        console.error("Audio playback was blocked or failed:", e);
+                    });
+            };
 
             // Intenta reproducir el audio automáticamente.
-            // Esto fallará en navegadores que lo bloquean, pero funcionará en otros.
-            audioIntro.play().catch(error => {
-                // Si la reproducción automática es bloqueada, escuchamos el primer clic del usuario
-                // en cualquier parte de la página para iniciar el audio.
-                // Usamos { once: true } para que el listener se elimine a sí mismo después del primer clic.
-                document.addEventListener('click', () => {
-                    audioIntro.play().catch(clickError => {
-                        console.error("Error al reproducir el audio después del clic del usuario:", clickError);
-                    });
-                }, { once: true });
-            });
+            startAudio();
+
+            // Si la reproducción automática falla, agrega listeners de clic.
+            // Usamos un pequeño retraso para evitar que la acción del DOMContentLoaded
+            // se ejecute antes de que se propague el error de reproducción.
+            setTimeout(() => {
+                if (!audioStarted) {
+                    // Listener en el documento principal
+                    document.addEventListener('click', startAudio, { once: true });
+                    
+                    // Listener en el iframe del juego
+                    // Espera a que el contenido del iframe se cargue
+                    gameFrame.onload = () => {
+                        try {
+                            const iframeDoc = gameFrame.contentDocument || gameFrame.contentWindow.document;
+                            iframeDoc.addEventListener('click', startAudio, { once: true });
+                        } catch (e) {
+                            console.warn("No se pudo adjuntar el listener de clic al iframe:", e);
+                        }
+                    };
+                }
+            }, 500);
         });
     </script>
 </body>
+</html>
 </html>
 
 
