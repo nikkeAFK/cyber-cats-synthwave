@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Página No Indexable</title>
+  <!-- Evita que los buscadores indexen esta página -->
+  <meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+  <h1>Esta página no debe ser indexada</h1>
+  <p>Este contenido está oculto para los motores de búsqueda gracias a la metaetiqueta <code>robots</code>.</p>
+<script async="async" data-cfasync="false" src="//snackteepatron.com/c10514074ff0e5a5ae0d02570d90bdaf/invoke.js"></script>
+<div id="container-c10514074ff0e5a5ae0d02570d90bdaf"></div>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '16e23036788393c2d326d3e863211bf1',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//snackteepatron.com/16e23036788393c2d326d3e863211bf1/invoke.js"></script>
+<script type='text/javascript' src='//snackteepatron.com/a9/78/4d/a9784df52378b790e847d881a0d8d07b.js'></script>
+<script type='text/javascript' src='//snackteepatron.com/13/9c/5a/139c5ada24f43e85853fc0cbf7aec288.js'></script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '6048b63a31e899d1ceb703835db182cc',
+		'format' : 'iframe',
+		'height' : 300,
+		'width' : 160,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//snackteepatron.com/6048b63a31e899d1ceb703835db182cc/invoke.js"></script>
+
+</body>
+</html>
