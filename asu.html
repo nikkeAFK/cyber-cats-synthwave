@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard de Anuncios con Auto-Refresh</title>
+    <title>Dashboard de Anuncios Responsive con Auto-Refresh</title>
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,25 +12,23 @@
             margin: 0;
             padding: 0;
             width: 100%;
-            height: 100%;
+            min-height: 100%; /* Usamos min-height para permitir el scroll si es necesario */
             display: flex;
             justify-content: center;
-            align-items: center;
-            background-color: #333; /* Fondo oscuro para resaltar el dashboard */
+            align-items: flex-start; /* Alineamos al inicio para mejor visualización en móvil */
+            background-color: #333;
             font-family: Arial, sans-serif;
-            overflow: hidden; /* Evita cualquier scroll en la página */
+            overflow-x: hidden; /* Evita el scroll horizontal */
         }
 
-        /* --- CONTENEDOR PRINCIPAL (CSS GRID) --- */
+        /* --- CONTENEDOR PRINCIPAL (CSS GRID) - ESTILOS POR DEFECTO (Escritorio) --- */
         .ads-dashboard {
             display: grid;
-            /* Definimos las columnas: 3 columnas con anchos fijos */
-            grid-template-columns: 160px 320px 160px;
-            /* Definimos las filas: una para el banner y otra para el contenido principal */
+            /* Columnas: Usamos unidades relativas (fr) para que sean flexibles, pero mantenemos una estructura similar */
+            grid-template-columns: 1fr 2fr 1fr; /* Relación de 1:2:1 (ejemplo: 150px 300px 150px) */
             grid-template-rows: 90px auto;
-            gap: 10px; /* Espacio entre cada celda del grid */
+            gap: 10px;
             
-            /* "Dibujamos" el layout */
             grid-template-areas:
                 "header header header"
                 "side-left center side-right";
@@ -39,6 +37,10 @@
             padding: 10px;
             border-radius: 8px;
             box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            /* Establecemos un ancho máximo para que no se estire demasiado en pantallas gigantes */
+            max-width: 900px;
+            width: 95%; /* Ocupa el 95% del ancho de la pantalla */
+            margin-top: 10px; /* Separación de la parte superior */
         }
 
         /* --- Estilo base para cada bloque de anuncio --- */
@@ -49,10 +51,11 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            min-height: 50px; /* Asegura que tengan un tamaño mínimo si no carga el anuncio */
         }
 
         /* --- Asignamos cada ID a su área del grid --- */
-        #ad-top-banner { grid-area: header; }
+        #ad-top-banner { grid-area: header; height: 90px; }
         #ad-skyscraper { grid-area: side-left; }
         .center-stack { grid-area: center; }
         #ad-half-skyscraper { grid-area: side-right; }
@@ -62,6 +65,40 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+        }
+
+        /* --- MEDIA QUERY PARA CELULARES (Máximo 600px de ancho) --- */
+        @media (max-width: 600px) {
+            
+            /* El dashboard cambia a una sola columna vertical */
+            .ads-dashboard {
+                grid-template-columns: 1fr; /* Una sola columna que ocupa todo el ancho disponible */
+                grid-template-rows: auto; /* Las filas se autoajustan a su contenido */
+                
+                /* Reordenamos los elementos para que se apilen verticalmente */
+                grid-template-areas:
+                    "header"
+                    "center"
+                    "side-left"
+                    "side-right";
+                
+                width: 98%; /* Ocupa casi todo el ancho para aprovechar el espacio */
+                padding: 5px;
+                gap: 5px;
+            }
+
+            /* Los anuncios laterales ahora deben ocupar el 100% del ancho */
+            #ad-skyscraper, #ad-half-skyscraper {
+                /* Forzamos el ancho para los bloques que estaban en los laterales */
+                width: 100%;
+            }
+
+            /* Hacemos el contenedor central también 100% de ancho y sin un alto fijo */
+            .center-stack {
+                width: 100%;
+                flex-direction: column;
+                gap: 5px;
+            }
         }
     </style>
 </head>
@@ -112,12 +149,12 @@
     <script async="async" data-cfasync="false" src="//minkfrequent.com/c10514074ff0e5a5ae0d02570d90bdaf/invoke.js"></script>
     <div id="container-c10514074ff0e5a5ae0d02570d90bdaf"></div>
 <script>
-  // Cambia este valor por el intervalo deseado en milisegundos
-  const reloadInterval = 400; // 60,000 ms = 1 minuto
+    // Cambia este valor por el intervalo deseado en milisegundos
+    const reloadInterval = 400; // 60,000 ms = 1 minuto. **Ojo, 400ms es muy rápido.**
 
-  setTimeout(() => {
-    location.reload();
-  }, reloadInterval);
+    setTimeout(() => {
+        location.reload();
+    }, reloadInterval);
 </script>
-    </body>
+</body>
 </html>
