@@ -1,67 +1,168 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Página No Indexable</title>
-  <!-- Evita que los buscadores indexen esta página -->
-  <meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <title>Página de Anuncios</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* --- ESTILOS GENERALES --- */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-content {
+            text-align: center;
+            margin-bottom: 20px;
+            max-width: 938px; /* Ancho máximo para coincidir con el contenedor de anuncios */
+            width: 100%;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL DE ANUNCIOS (FLEXBOX) --- */
+        .ads-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 15px; /* Espacio entre el contenido principal y la barra lateral */
+            flex-wrap: wrap; /* Permite que la barra lateral se mueva debajo en pantallas pequeñas */
+            max-width: 938px; /* 728px (banner) + 160px (sidebar) + 15px (gap) + 2*15px (padding) = 938px */
+            width: 100%;
+        }
+
+        /* --- COLUMNA IZQUIERDA: ANUNCIOS PRINCIPALES --- */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Espacio entre anuncios en esta columna */
+            flex-grow: 1; /* Permite que ocupe el espacio disponible */
+        }
+        
+        /* --- COLUMNA DERECHA: BARRA LATERAL --- */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Espacio entre anuncios de la barra lateral */
+            width: 160px; /* Ancho fijo para los anuncios verticales */
+        }
+        
+        /* --- ESTILOS INDIVIDUALES PARA CADA BLOQUE DE ANUNCIO --- */
+        /* Centra el contenido (iframe) dentro de cada bloque */
+        .ad-block {
+            background-color: #ffffff;
+            border: 1px dashed #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 50px; /* Altura mínima para que el contenedor sea visible antes de que cargue el anuncio */
+        }
+
+        /* --- AJUSTE PARA MÓVILES (RESPONSIVIDAD) --- */
+        @media (max-width: 900px) {
+            .ads-wrapper {
+                flex-direction: column; /* Apila las columnas una sobre otra */
+                align-items: center; /* Centra los bloques */
+            }
+            .main-content {
+                width: 100%;
+                max-width: 728px; /* El ancho del banner más grande */
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Esta página no debe ser indexada</h1>
-  <p>Este contenido está oculto para los motores de búsqueda gracias a la metaetiqueta <code>robots</code>.</p>
-<script type="text/javascript">
-	atOptions = {
-		'key' : '31c4f2f18456f791d7be1cb3f0bcbe31',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//minkfrequent.com/31c4f2f18456f791d7be1cb3f0bcbe31/invoke.js"></script>
-	<script type="text/javascript">
-	atOptions = {
-		'key' : 'c7009b142f4109549dc34b01d1665638',
-		'format' : 'iframe',
-		'height' : 90,
-		'width' : 728,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//minkfrequent.com/c7009b142f4109549dc34b01d1665638/invoke.js"></script>
-	<script type="text/javascript">
-	atOptions = {
-		'key' : '81fa72d8295c10b6ef15d7a86c0123b0',
-		'format' : 'iframe',
-		'height' : 600,
-		'width' : 160,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//minkfrequent.com/81fa72d8295c10b6ef15d7a86c0123b0/invoke.js"></script>
-	<script type="text/javascript">
-	atOptions = {
-		'key' : '6048b63a31e899d1ceb703835db182cc',
-		'format' : 'iframe',
-		'height' : 300,
-		'width' : 160,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//minkfrequent.com/6048b63a31e899d1ceb703835db182cc/invoke.js"></script>
-	<script type='text/javascript' src='//minkfrequent.com/13/9c/5a/139c5ada24f43e85853fc0cbf7aec288.js'></script>
-	<script type='text/javascript' src='//minkfrequent.com/a9/78/4d/a9784df52378b790e847d881a0d8d07b.js'></script>
-<script type="text/javascript">
-	atOptions = {
-		'key' : '16e23036788393c2d326d3e863211bf1',
-		'format' : 'iframe',
-		'height' : 50,
-		'width' : 320,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//minkfrequent.com/16e23036788393c2d326d3e863211bf1/invoke.js"></script>
-	<script async="async" data-cfasync="false" src="//minkfrequent.com/c10514074ff0e5a5ae0d02570d90bdaf/invoke.js"></script>
-<div id="container-c10514074ff0e5a5ae0d02570d90bdaf"></div>
+
+    <div class="header-content">
+        <h1>Esta página no debe ser indexada</h1>
+        <p>Este contenido está oculto para los motores de búsqueda gracias a la metaetiqueta <code>robots</code>.</p>
+    </div>
+
+    <div class="ads-wrapper">
+
+        <div class="main-content">
+            
+            <div id="ad-top-banner" class="ad-block">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : 'c7009b142f4109549dc34b01d1665638',
+                        'format' : 'iframe',
+                        'height' : 90,
+                        'width' : 728,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//minkfrequent.com/c7009b142f4109549dc34b01d1665638/invoke.js"></script>
+            </div>
+
+            <div id="ad-medium-rect" class="ad-block">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '31c4f2f18456f791d7be1cb3f0bcbe31',
+                        'format' : 'iframe',
+                        'height' : 250,
+                        'width' : 300,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//minkfrequent.com/31c4f2f18456f791d7be1cb3f0bcbe31/invoke.js"></script>
+            </div>
+
+            <div id="ad-mobile-banner" class="ad-block">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '16e23036788393c2d326d3e863211bf1',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//minkfrequent.com/16e23036788393c2d326d3e863211bf1/invoke.js"></script>
+            </div>
+
+        </div>
+
+        <div class="sidebar">
+
+            <div id="ad-skyscraper" class="ad-block">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '81fa72d8295c10b6ef15d7a86c0123b0',
+                        'format' : 'iframe',
+                        'height' : 600,
+                        'width' : 160,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//minkfrequent.com/81fa72d8295c10b6ef15d7a86c0123b0/invoke.js"></script>
+            </div>
+
+            <div id="ad-small-skyscraper" class="ad-block">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '6048b63a31e899d1ceb703835db182cc',
+                        'format' : 'iframe',
+                        'height' : 300,
+                        'width' : 160,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//minkfrequent.com/6048b63a31e899d1ceb703835db182cc/invoke.js"></script>
+            </div>
+
+        </div>
+    </div>
+
+    <script type='text/javascript' src='//minkfrequent.com/13/9c/5a/139c5ada24f43e85853fc0cbf7aec288.js'></script>
+    <script type='text/javascript' src='//minkfrequent.com/a9/78/4d/a9784df52378b790e847d881a0d8d07b.js'></script>
+    <script async="async" data-cfasync="false" src="//minkfrequent.com/c10514074ff0e5a5ae0d02570d90bdaf/invoke.js"></script>
+    <div id="container-c10514074ff0e5a5ae0d02570d90bdaf"></div>
+
 </body>
 </html>
