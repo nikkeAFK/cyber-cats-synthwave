@@ -2,127 +2,94 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Página de Anuncios Compacta</title>
+    <title>Dashboard de Anuncios</title>
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
         /* --- ESTILOS GENERALES --- */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
+        html, body {
             margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .header-content {
-            text-align: center;
-            margin-bottom: 20px;
-            max-width: 700px; /* Ancho ajustado al nuevo layout compacto */
+            padding: 0;
             width: 100%;
-        }
-
-        /* --- CONTENEDOR PRINCIPAL DE ANUNCIOS (FLEXBOX) --- */
-        .ads-wrapper {
+            height: 100%;
             display: flex;
             justify-content: center;
-            gap: 15px; /* Espacio entre el contenido principal y la barra lateral */
-            flex-wrap: wrap; /* Permite que la barra lateral se mueva debajo en pantallas pequeñas */
-            max-width: 700px; /* Ancho total reducido: 546px + 120px + 15px gap */
-            width: 100%;
+            align-items: center;
+            background-color: #333; /* Fondo oscuro para resaltar el dashboard */
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Evita cualquier scroll en la página */
         }
 
-        /* --- COLUMNA IZQUIERDA: ANUNCIOS PRINCIPALES --- */
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        /* --- CONTENEDOR PRINCIPAL (CSS GRID) --- */
+        .ads-dashboard {
+            display: grid;
+            /* Definimos las columnas: 3 columnas con anchos fijos */
+            grid-template-columns: 160px 320px 160px;
+            /* Definimos las filas: una para el banner y otra para el contenido principal */
+            grid-template-rows: 90px auto;
+            gap: 10px; /* Espacio entre cada celda del grid */
+            
+            /* "Dibujamos" el layout */
+            grid-template-areas:
+                "header header header"
+                "side-left center side-right";
+            
+            background-color: #f0f2f5;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
-        
-        /* --- COLUMNA DERECHA: BARRA LATERAL --- */
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            /* El ancho ahora es de 120px (160px * 0.75) */
-            width: 120px; 
-        }
-        
-        /* --- ESTILO GENERAL PARA BLOQUES DE ANUNCIO --- */
+
+        /* --- Estilo base para cada bloque de anuncio --- */
         .ad-block {
-            background-color: #ffffff;
+            background-color: #fff;
             border: 1px dashed #ccc;
-            overflow: hidden; /* Oculta cualquier parte del iframe que se salga del contenedor */
-            position: relative; /* Necesario para la transformación */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
         }
+
+        /* --- Asignamos cada ID a su área del grid --- */
+        #ad-top-banner { grid-area: header; }
+        #ad-skyscraper { grid-area: side-left; }
+        .center-stack { grid-area: center; }
+        #ad-half-skyscraper { grid-area: side-right; }
         
-        /* --- ✨ LA MAGIA DE LA REDUCCIÓN DE TAMAÑO --- */
-        .ad-block iframe {
-            /* Escala el iframe al 75% de su tamaño */
-            transform: scale(0.75);
-            /* Asegura que la escala se haga desde la esquina superior izquierda */
-            transform-origin: 0 0;
-        }
-
-        /* --- TAMAÑOS FIJOS PARA CADA CONTENEDOR (75% del original) --- */
-        #ad-top-banner {
-            width: 546px;  /* 728 * 0.75 */
-            height: 67.5px; /* 90 * 0.75 */
-        }
-        #ad-medium-rect {
-            width: 225px;   /* 300 * 0.75 */
-            height: 187.5px;/* 250 * 0.75 */
-        }
-        #ad-mobile-banner {
-            width: 240px;   /* 320 * 0.75 */
-            height: 37.5px; /* 50 * 0.75 */
-        }
-        #ad-skyscraper {
-            width: 120px;   /* 160 * 0.75 */
-            height: 450px;  /* 600 * 0.75 */
-        }
-        #ad-small-skyscraper {
-            width: 120px;   /* 160 * 0.75 */
-            height: 225px;  /* 300 * 0.75 */
-        }
-
-        /* --- AJUSTE PARA MÓVILES --- */
-        @media (max-width: 720px) {
-            .ads-wrapper {
-                flex-direction: column;
-                align-items: center;
-            }
+        /* Contenedor para los anuncios apilados en la columna central */
+        .center-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
     </style>
 </head>
 <body>
 
-    <div class="header-content">
-        <h1>Esta página no debe ser indexada</h1>
-        <p>Este contenido está oculto para los motores de búsqueda.</p>
-    </div>
+    <div class="ads-dashboard">
 
-    <div class="ads-wrapper">
+        <div id="ad-top-banner" class="ad-block">
+            <script type="text/javascript">
+                atOptions = { 'key' : 'c7009b142f4109549dc34b01d1665638', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+            </script>
+            <script type="text/javascript" src="//minkfrequent.com/c7009b142f4109549dc34b01d1665638/invoke.js"></script>
+        </div>
 
-        <div class="main-content">
-            
-            <div id="ad-top-banner" class="ad-block">
-                <script type="text/javascript">
-                    atOptions = { 'key' : 'c7009b142f4109549dc34b01d1665638', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
-                </script>
-                <script type="text/javascript" src="//minkfrequent.com/c7009b142f4109549dc34b01d1665638/invoke.js"></script>
-            </div>
-
+        <div id="ad-skyscraper" class="ad-block">
+            <script type="text/javascript">
+                atOptions = { 'key' : '81fa72d8295c10b6ef15d7a86c0123b0', 'format' : 'iframe', 'height' : 600, 'width' : 160, 'params' : {} };
+            </script>
+            <script type="text/javascript" src="//minkfrequent.com/81fa72d8295c10b6ef15d7a86c0123b0/invoke.js"></script>
+        </div>
+        
+        <div class="center-stack">
             <div id="ad-medium-rect" class="ad-block">
                 <script type="text/javascript">
                     atOptions = { 'key' : '31c4f2f18456f791d7be1cb3f0bcbe31', 'format' : 'iframe', 'height' : 250, 'width' : 300, 'params' : {} };
                 </script>
                 <script type="text/javascript" src="//minkfrequent.com/31c4f2f18456f791d7be1cb3f0bcbe31/invoke.js"></script>
             </div>
-
             <div id="ad-mobile-banner" class="ad-block">
                 <script type="text/javascript">
                     atOptions = { 'key' : '16e23036788393c2d326d3e863211bf1', 'format' : 'iframe', 'height' : 50, 'width' : 320, 'params' : {} };
@@ -131,22 +98,13 @@
             </div>
         </div>
 
-        <div class="sidebar">
-
-            <div id="ad-skyscraper" class="ad-block">
-                <script type="text/javascript">
-                    atOptions = { 'key' : '81fa72d8295c10b6ef15d7a86c0123b0', 'format' : 'iframe', 'height' : 600, 'width' : 160, 'params' : {} };
-                </script>
-                <script type="text/javascript" src="//minkfrequent.com/81fa72d8295c10b6ef15d7a86c0123b0/invoke.js"></script>
-            </div>
-
-            <div id="ad-small-skyscraper" class="ad-block">
-                <script type="text/javascript">
-                    atOptions = { 'key' : '6048b63a31e899d1ceb703835db182cc', 'format' : 'iframe', 'height' : 300, 'width' : 160, 'params' : {} };
-                </script>
-                <script type="text/javascript" src="//minkfrequent.com/6048b63a31e899d1ceb703835db182cc/invoke.js"></script>
-            </div>
+        <div id="ad-half-skyscraper" class="ad-block">
+            <script type="text/javascript">
+                atOptions = { 'key' : '6048b63a31e899d1ceb703835db182cc', 'format' : 'iframe', 'height' : 300, 'width' : 160, 'params' : {} };
+            </script>
+            <script type="text/javascript" src="//minkfrequent.com/6048b63a31e899d1ceb703835db182cc/invoke.js"></script>
         </div>
+
     </div>
 
     <script type='text/javascript' src='//minkfrequent.com/13/9c/5a/139c5ada24f43e85853fc0cbf7aec288.js'></script>
