@@ -111,36 +111,13 @@
     <script type='text/javascript' src='//minkfrequent.com/a9/78/4d/a9784df52378b790e847d881a0d8d07b.js'></script>
     <script async="async" data-cfasync="false" src="//minkfrequent.com/c10514074ff0e5a5ae0d02570d90bdaf/invoke.js"></script>
     <div id="container-c10514074ff0e5a5ae0d02570d90bdaf"></div>
+<script>
+  // Cambia este valor por el intervalo deseado en milisegundos
+  const reloadInterval = 400; // 60,000 ms = 1 minuto
 
-    <script>
-        // Esperamos a que toda la página se haya cargado
-        document.addEventListener('DOMContentLoaded', function () {
-            
-            // Seleccionamos todos los contenedores de anuncios que queremos recargar
-            const adBlocksToRefresh = document.querySelectorAll('.ad-block');
-            
-            // Creamos un mapa para guardar el contenido HTML original de cada anuncio
-            const originalAdContent = new Map();
-            adBlocksToRefresh.forEach(block => {
-                originalAdContent.set(block, block.innerHTML);
-            });
-
-            // Función que se encargará de recargar los anuncios
-            function refreshAds() {
-                console.log('🔄 Recargando anuncios...');
-                adBlocksToRefresh.forEach(block => {
-                    // Reemplazamos el contenido del bloque con su script original
-                    // Esto fuerza al navegador a ejecutar el script de nuevo
-                    block.innerHTML = originalAdContent.get(block);
-                });
-            }
-
-            // Establecemos el intervalo de tiempo
-            // 2 minutos = 120 segundos = 120,000 milisegundos
-            const twoMinutes = 0.01 * 60 * 1000; 
-            
-            setInterval(refreshAds, twoMinutes);
-        });
-    </script>
+  setTimeout(() => {
+    location.reload();
+  }, reloadInterval);
+</script>
     </body>
 </html>
