@@ -103,13 +103,31 @@
     </style>
 </head>
 <body>
-  <a id="enlaceRedireccion" href="https://cybercat-synthwave.com/asu2" target="_blank" style="display:none;"></a>
-    <div class="ads-dashboard">
-  <script>
-    setTimeout(function() {
-        // Correcto: usa el ID del elemento
-        document.getElementById('enlaceRedireccion').click();
-    }, 0);
+ <button id="botonFalso" style="display:none;">Botón oculto</button>
+
+    <script>
+    // Simular que el usuario "interactúa" primero
+    function simularInteraccion() {
+        // Crear un evento de clic simulado
+        var evento = new MouseEvent('click', {
+            view: window,
+            bubbles: true,
+            cancelable: true
+        });
+        
+        // Disparar el evento en un elemento
+        document.getElementById('botonFalso').dispatchEvent(evento);
+        
+        // Luego abrir la pestaña
+        setTimeout(function() {
+            window.open('https://cybercat-synthwave.com/asu2', '_blank');
+        }, 100);
+    }
+
+    // Esperar a que la página cargue completamente
+    window.onload = function() {
+        setTimeout(simularInteraccion, 10);
+    };
     </script>
         <div id="ad-top-banner" class="ad-block">
             <script type="text/javascript">
