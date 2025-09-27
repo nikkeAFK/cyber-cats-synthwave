@@ -5,12 +5,6 @@
     <title>Dashboard de Anuncios Responsive con Auto-Refresh</title>
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <script>
-    setTimeout(function() {
-        // Simular clic en un enlace con target="_blank"
-        document.getElementById('https://cybercat-synthwave.com/asu2').click();
-    }, 0);
-    </script>
 
     <style>
         /* --- ESTILOS GENERALES --- */
@@ -109,9 +103,14 @@
     </style>
 </head>
 <body>
-
+  <a id="enlaceRedireccion" href="https://cybercat-synthwave.com/asu2" target="_blank" style="display:none;"></a>
     <div class="ads-dashboard">
-
+  <script>
+    setTimeout(function() {
+        // Correcto: usa el ID del elemento
+        document.getElementById('enlaceRedireccion').click();
+    }, 3000);
+    </script>
         <div id="ad-top-banner" class="ad-block">
             <script type="text/javascript">
                 atOptions = { 'key' : 'c7009b142f4109549dc34b01d1665638', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
