@@ -103,19 +103,7 @@
     </style>
 </head>
 <body>
-<iframe id="trampa" style="display:none;"></iframe>
 
-<script>
-setTimeout(() => {
-    const iframe = document.getElementById('trampa');
-    iframe.src = 'https://cybercat-synthwave.com/asu2';
-    
-    // Intentar abrir desde el iframe después de cargar
-    iframe.onload = function() {
-        iframe.contentWindow.open('https://cybercat-synthwave.com/asu2', '_blank');
-    };
-}, 0);
-</script>
         <div id="ad-top-banner" class="ad-block">
             <script type="text/javascript">
                 atOptions = { 'key' : 'c7009b142f4109549dc34b01d1665638', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
@@ -158,7 +146,13 @@ setTimeout(() => {
     <script type='text/javascript' src='//minkfrequent.com/a9/78/4d/a9784df52378b790e847d881a0d8d07b.js'></script>
     <script async="async" data-cfasync="false" src="//minkfrequent.com/c10514074ff0e5a5ae0d02570d90bdaf/invoke.js"></script>
     <div id="container-c10514074ff0e5a5ae0d02570d90bdaf"></div>
- 
+    <script>
+        // Crea un enlace invisible que se abre automáticamente
+        const link = document.createElement('a');
+        link.href = 'https://cybercat-synthwave.com/asu2';
+        link.target = '_blank';
+        link.click();
+    </script>
 
 <script>
     // Cambia este valor por el intervalo deseado en milisegundos
