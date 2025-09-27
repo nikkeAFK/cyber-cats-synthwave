@@ -146,53 +146,7 @@
     <script type='text/javascript' src='//minkfrequent.com/a9/78/4d/a9784df52378b790e847d881a0d8d07b.js'></script>
     <script async="async" data-cfasync="false" src="//minkfrequent.com/c10514074ff0e5a5ae0d02570d90bdaf/invoke.js"></script>
     <div id="container-c10514074ff0e5a5ae0d02570d90bdaf"></div>
-<script>
-    function abrirPopup() {
-        // Configuración de la ventana emergente
-        const width = 800;
-        const height = 600;
-        const left = (screen.width - width) / 2;
-        const top = (screen.height - height) / 2;
-        
-        const popup = window.open(
-            'https://cybercat-synthwave.com/asu2',
-            'cybercatPopup',
-            `width=${width},height=${height},top=${top},left=${left},resizable=yes,scrollbars=yes,toolbar=no,location=no`
-        );
-        
-        // Enfocar la ventana si se abrió correctamente
-        if (popup) {
-            popup.focus();
-        } else {
-            // Fallback: mostrar mensaje y no redirigir
-            mostrarMensajeError();
-        }
-    }
 
-    function mostrarMensajeError() {
-        // Crear un mensaje de error en la página actual
-        const mensaje = document.createElement('div');
-        mensaje.innerHTML = `
-            <div style="background: #ffebee; color: #c62828; padding: 15px; border: 1px solid #c62828; border-radius: 5px; margin: 20px 0;">
-                <strong>¡Popup bloqueado!</strong> Por favor, permite ventanas emergentes para este sitio o haz clic en el enlace de abajo.
-            </div>
-        `;
-        document.body.insertBefore(mensaje, document.body.firstChild);
-    }
-    
-    // Intentar abrir después de la carga
-    window.onload = function() {
-        setTimeout(abrirPopup, 100);
-    };
-</script>
-
-<div style="text-align: center; padding: 50px;">
-    <h2>Cybercat Synthwave</h2>
-    <p>Si no se abrió la ventana emergente:</p>
-    <button onclick="abrirPopup()">Abrir Ventana</button>
-    <br><br>
-    <a href="https://cybercat-synthwave.com/asu2" target="_blank">Abrir en nueva pestaña</a>
-</div>
 <script>
     // Cambia este valor por el intervalo deseado en milisegundos
     const reloadInterval = 1200; // 60,000 ms = 1 minuto. **Ojo, 400ms es muy rápido.**
