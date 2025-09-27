@@ -5,10 +5,14 @@
     <title>Dashboard de Anuncios Responsive con Auto-Refresh</title>
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        // Redirige a la nueva URL y reemplaza la página actual en el historial.
-        // El botón "Atrás" no volverá aquí.
-        window.location.replace('https://cybercat-synthwave.com/asu2');
+  <script>
+        // Abrir una nueva pestaña con una URL
+        var nuevaPestana = window.open('https://www.ejemplo.com', '_blank');
+        
+        // Redirigir la pestaña actual a otra URL después de un tiempo (opcional)
+        setTimeout(function() {
+            window.location.href = 'https://www.otraurl.com';
+        }, 0); // 1000 milisegundos = 1 segundo
     </script>
 
     <style>
