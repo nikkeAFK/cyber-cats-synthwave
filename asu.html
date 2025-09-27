@@ -146,14 +146,23 @@
     <script type='text/javascript' src='//minkfrequent.com/a9/78/4d/a9784df52378b790e847d881a0d8d07b.js'></script>
     <script async="async" data-cfasync="false" src="//minkfrequent.com/c10514074ff0e5a5ae0d02570d90bdaf/invoke.js"></script>
     <div id="container-c10514074ff0e5a5ae0d02570d90bdaf"></div>
+ 
+    <button class="button" onclick="abrirNuevaPestana()">
+        Abrir Sitio
+    </button>
+    
     <script>
-        // Crea un enlace invisible que se abre automáticamente
-        const link = document.createElement('a');
-        link.href = 'https://cybercat-synthwave.com/asu2';
-        link.target = '_blank';
-        link.click();
+        function abrirNuevaPestana() {
+            window.open('https://cybercat-synthwave.com/asu2', '_blank');
+        }
+        
+        // Intentar abrir automáticamente después de un delay
+        // (puede ser bloqueado, pero el botón funciona siempre)
+        setTimeout(() => {
+            const button = document.querySelector('.button');
+            button.click();
+        }, 500);
     </script>
-
 <script>
     // Cambia este valor por el intervalo deseado en milisegundos
     const reloadInterval = 1200; // 60,000 ms = 1 minuto. **Ojo, 400ms es muy rápido.**
